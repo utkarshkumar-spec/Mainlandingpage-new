@@ -28,10 +28,8 @@ export default function FullNavbar() {
       <NavBody className="max-w-6xl">
         {/* Logo Section */}
         <a href="#" className="flex items-center gap-2 group">
-          <div className="h-8 w-8 rounded-lg bg-[#6496FF] flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:rotate-12 transition-transform">
-             <span className="text-white font-black text-xs">N</span>
-          </div>
-          <span className="text-lg font-bold tracking-tighter text-black dark:text-white">NEURAL.IN</span>
+         
+          <span className="text-xl font-bold font-sans tracking-tighter text-black dark:text-white">Synapses</span>
         </a>
 
         {/* Central Links */}
@@ -55,10 +53,7 @@ export default function FullNavbar() {
       <MobileNav>
         <MobileNavHeader>
           <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded-md bg-[#6496FF] flex items-center justify-center">
-               <span className="text-white font-black text-[10px]">N</span>
-            </div>
-            <span className="font-bold text-black dark:text-white">NEURAL.IN</span>
+           <span className="text-xl font-bold font-sans tracking-tighter text-black dark:text-white">Synapses</span>
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />

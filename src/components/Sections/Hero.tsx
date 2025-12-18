@@ -11,9 +11,14 @@ import { FlipWords } from "../ui/flip-words";
 export default function HeroSectionOne() {
     const [isImageLoaded, setIsImageLoaded] = useState(false);
     const words = ["build", "scale", "launch", "manage"];
+    const brandColors = [
+        "rgb(255, 100, 150)",
+        "rgb(100, 150, 255)",
+        "rgb(255, 200, 100)"
+    ];
 
     // Your specific Brand Colors
-    const brandGradient = "linear-gradient(to right, rgb(255, 100, 150), rgb(100, 150, 255), rgb(255, 200, 100))";
+    const brandGradient = `linear-gradient(to right, ${brandColors.join(", ")})`;
 
     return (
         <div className="relative w-full flex flex-col items-center">
@@ -43,7 +48,7 @@ export default function HeroSectionOne() {
                     {/* 2. Main Heading */}
                     <div className="space-y-6">
                         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] text-neutral-900 dark:text-white">
-                            Everything you need to  <br /> <FlipWords words={words} />your <span></span>   
+                            Everything you need to  <br /> <FlipWords words={words} />your <span></span>
                             <motion.span
                                 style={{
                                     backgroundImage: brandGradient,
@@ -54,7 +59,7 @@ export default function HeroSectionOne() {
                                 animate={{ backgroundPosition: ["0% center", "100% center", "0% center"] }}
                                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                             >
-                                             Edtech
+                                Ed-Tech
                             </motion.span>
                         </h1>
 
