@@ -66,7 +66,7 @@ export default function HowItWorksSection() {
                 </div>
 
                 {/* Steps */}
-                <div className="max-w-6xl mx-auto md:grid md:grid-cols-3 md:gap-16 space-y-20 md:space-y-0">
+                <div className="max-w-6xl md:px-0 px-6 mx-auto md:grid md:grid-cols-3 md:gap-16 space-y-20 md:space-y-0">
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}

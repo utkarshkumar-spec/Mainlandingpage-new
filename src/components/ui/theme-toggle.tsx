@@ -8,8 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export function ThemeToggle() {
   const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [animating, setAnimating] = useState(false);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
 
   const btnRef = useRef<HTMLButtonElement>(null);
 
@@ -22,18 +20,8 @@ export function ThemeToggle() {
 
   const handleToggle = (e: React.MouseEvent) => {
     // 1. Capture click coordinates
-    setCoords({ x: e.clientX, y: e.clientY });
-    setAnimating(true);
+    setTheme(isDark ? "light" : "dark");
 
-    // 2. Change theme quickly (at 200ms) while the circle is expanding
-    setTimeout(() => {
-      setTheme(isDark ? "light" : "dark");
-    }, 200);
-
-    // 3. Remove the effect instantly after expansion
-    setTimeout(() => {
-      setAnimating(false); // This instantly removes the overlay
-    }, 500); // Matches the animation duration
   };
 
   return (
@@ -69,25 +57,6 @@ export function ThemeToggle() {
           )}
         </AnimatePresence>
       </button>
-
-      {/* RIPPLE OVERLAY - JUST THE SPLASH, NO FADE OUT */}
-      {animating && (
-        <motion.div
-          key="ripple"
-          initial={{ clipPath: `circle(0% at ${coords.x}px ${coords.y}px)` }}
-          animate={{ clipPath: `circle(150% at ${coords.x}px ${coords.y}px)` }}
-          transition={{
-            duration: 0.5,
-            ease: [0.4, 0, 0.2, 1]
-          }}
-          className="fixed inset-0 z-[90] pointer-events-none"
-          style={{
-            backgroundColor: isDark 
-              ? "rgba(255, 255, 255, 0.85)"
-              : "rgba(9, 9, 11, 0.85)",
-          }}
-        />
-      )}
     </>
   );
 }

@@ -29,10 +29,10 @@ export default function Home() {
         dark:bg-black dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] 
         -z-10"
       />
-    
+
       {/* 3. HERO SECTION with Spotlight */}
-      <section className="relative pt-20 pb-10 ">
-        
+      <section className="relative">
+
         {/* The Spotlight component adds a premium glow that moves with the theme */}
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20 fill-slate-900/10 dark:fill-white/[0.1]"
@@ -41,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* 4. MAIN CONTENT WRAPPER */}
-      <div className="relative mx-auto max-w-7xl px-6 flex flex-col gap-24 md:gap-40 pb-20">
+      <div className="relative mx-auto max-w-7xl px-6 flex flex-col gap-24 md:gap-20 pb-20">
 
         <section id="features" className="scroll-mt-20">
           {/* Feature highlights should feel like they are floating on the grid */}
@@ -51,9 +51,9 @@ export default function Home() {
         <section id="how-it-works" className="scroll-mt-20">
           <HowItWorksSection />
         </section>
- <section id="TeamSection" className="scroll-mt-20">
-<TeamSection/>
- </section>
+        <section id="TeamSection" className="scroll-mt-20">
+          <TeamSection />
+        </section>
         <section id="reviews" className="scroll-mt-20">
           <Reviews />
         </section>

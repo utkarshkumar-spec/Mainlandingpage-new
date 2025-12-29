@@ -50,7 +50,7 @@ export default function FullNavbar() {
       </NavBody>
 
       {/* Mobile Experience */}
-      <MobileNav>
+      <MobileNav className="w-full">
         <MobileNavHeader>
           <div className="flex items-center gap-2">
             <span className="text-xl font-bold font-sans tracking-tighter text-black dark:text-white">Synapses</span>
@@ -62,7 +62,7 @@ export default function FullNavbar() {
         </MobileNavHeader>
 
         <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-          <div className="flex flex-col gap-6 items-center py-8">
+          <div className="flex w-full flex-col gap-6 items-center py-8">
             {navItems.map((item, idx) => (
               <a key={idx} href={item.link} className="text-xl font-bold dark:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 {item.name}

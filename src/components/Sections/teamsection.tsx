@@ -16,7 +16,15 @@ const teamMembers = [
     {
         name: "Bharat Goel",
         role: "Product Manager",
-        image: "https://api.dicebear.com/9.x/lorelei/svg?seed=Avery",
+        image: "https://res.cloudinary.com/dyktjldc4/image/upload/v1767024115/IMG-20251226-WA0001_lnkyuy.jpg",
+        x: "https://x.com",
+        linkedin: "https://linkedin.com",
+        accent: "#6496FF", // Blue
+    },
+    {
+        name: "Ram Bhardwajj",
+        role: "Founding Engineer",
+        image: "https://res.cloudinary.com/dyktjldc4/image/upload/v1767024112/IMG_5558_vc14rp.jpg",
         x: "https://x.com",
         linkedin: "https://linkedin.com",
         accent: "#6496FF", // Blue
@@ -28,14 +36,6 @@ const teamMembers = [
         x: "https://x.com",
         linkedin: "https://linkedin.com",
         accent: "#FFC864", // Gold
-    },
-    {
-        name: "Ram Bhardwajj",
-        role: "Founding Engineer",
-        image: "https://res.cloudinary.com/dhvkjanwa/image/upload/v1766233164/profile-pic_1_q4e0zp.png",
-        x: "https://x.com",
-        linkedin: "https://linkedin.com",
-        accent: "#6496FF", // Blue
     },
 ];
 export default function TeamSection() {
@@ -54,9 +54,9 @@ export default function TeamSection() {
                         <span>Our Team</span>
                     </motion.div>
                     <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-neutral-900 dark:text-white mb-4">
-                        Meet the minds behind <br />
+                        Meet the minds behind {" "}
                         <span className="text-xl font-bold tracking-tighter dark:text-white uppercase"></span>
-                        <span className="bg-clip-text font-bold tracking-tighter dark:text-white  text-transparent ">
+                        <span className="bg-clip-text font-bold tracking-tighter dark:text-white text-neutral-900 ">
                             Synapses
                         </span>
                     </h2>
