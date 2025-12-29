@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  output: 'standalone', // reducing image size
 };
 
 export default nextConfig;
