@@ -83,7 +83,6 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
           ? "0 0 0 1px rgba(100, 150, 255, 0.1), 0 10px 30px -10px rgba(0,0,0,0.1)" // Blue tinted shadow
           : "none",
         width: visible ? "60%" : "120%", // Wider for minimalist breathing room
-        y: visible ? 20 : 0,
       }}
       transition={{
         type: "spring",
@@ -94,8 +93,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-white px-4 py-2 lg:flex",
+        visible && "bg-white/90",
         className,
       )}
     >
@@ -111,7 +110,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-[#6B7280] transition duration-200 hover:text-[#111827] lg:flex lg:space-x-2",
         className,
       )}
     >
@@ -119,14 +118,14 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-[#6B7280]"
           key={`link-${idx}`}
           href={item.link}
         >
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-black/5 dark:bg-white/10"
+              className="absolute inset-0 h-full w-full rounded-full bg-black/5"
               style={{ border: '1px solid rgba(100, 150, 255, 0.2)' }} // Subtle blue border on hover
             />
           )}
@@ -157,8 +156,8 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-white px-0 py-2 lg:hidden",
+        visible && "bg-white/90",
         className,
       )}
     >

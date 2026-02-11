@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import Providers from "@/provider/provider";
 import FullNavbar from "@/components/ui/navbar";
@@ -14,6 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+});
 export const metadata: Metadata = {
   title: "Synapses",
   description: "Everything you need for your Ed-Tech",
@@ -28,7 +32,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <body
 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
       >
 
         <Providers>
