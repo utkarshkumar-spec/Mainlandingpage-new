@@ -29,10 +29,10 @@ export default function Footer() {
             </p>
           </div>
 
-          <button className="relative z-10 bg-white text-[#0066FF] px-8 py-5 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all flex items-center gap-3 shadow-xl group active:scale-95">
+          <a href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-white text-[#0066FF] px-8 py-5 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all flex items-center gap-3 shadow-xl group active:scale-95">
             <span>Schedule Demo</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </button>
+          </a>
         </motion.div>
 
         {/* --- FOOTER LINKS SECTION --- */}
@@ -44,7 +44,7 @@ export default function Footer() {
               <div className="h-10 w-10 rounded-xl bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-white" />
               </div>
-              <span className="text-2xl font-bold tracking-tight text-gray-900">Synapses</span>
+              <span className="text-2xl font-bold tracking-tight text-gray-900">Synappses</span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-8">
               Empowering the next generation of educators with AI-driven tools, seamless UX, and global scalability.
@@ -96,7 +96,7 @@ export default function Footer() {
         {/* Copyright Line */}
         <div className="border-t border-gray-100 py-8">
           <p className="text-xs text-gray-400">
-            © 2025 Synapses Built for the future of education.
+            © 2025 Synappses Built for the future of education.
           </p>
         </div>
 

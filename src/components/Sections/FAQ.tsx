@@ -39,7 +39,7 @@ export default function FAQSection() {
                             </p>
 
                             <button className="mt-4 w-full rounded-full bg-[#0066FF] py-2 text-white text-sm font-medium inline-flex items-center justify-center gap-2">
-                                Request Demo
+                             <a href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true" target="_blank" rel="noopener noreferrer">Request Demo</a>
                                 <span className="text-xl">›</span>
                             </button>
                         </div>

@@ -36,9 +36,9 @@ export default function FullNavbar() {
         <NavItems items={navItems} />
 
         {/* Right Side Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex z-50 items-center gap-3">
 
-          <button className="flex h-10 w-full items-center justify-center gap-2 rounded-full bg-[#1F6BFF] px-4 text-md font-medium text-white  sm:w-auto">
+          <button onClick={()=> window.location.href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true"} className="flex h-10 w-full items-center justify-center gap-2 rounded-full bg-[#1F6BFF] px-3 text-sm font-medium text-white  sm:w-auto">
            Request Demo
             <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </button>

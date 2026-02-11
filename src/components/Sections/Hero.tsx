@@ -62,10 +62,10 @@ export default function HeroSectionOne() {
 
                     <div className="mt-6 flex w-full flex-col items-center justify-center gap-5 sm:w-auto sm:flex-row">
                         
-                            <button className="flex  h-12 w-full items-center justify-center gap-2 rounded-full bg-[#1F6BFF] px-6 text-md font-medium text-white transition-all active:scale-95 sm:w-auto">
+                            <a href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="flex  h-12 w-full items-center justify-center gap-2 rounded-full bg-[#1F6BFF] px-6 text-md font-medium text-white transition-all active:scale-95 sm:w-auto">
                                 Book demo
                                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                            </button>
+                            </a>
 
                         <button className="text-xl font-medium text-[#515660] transition-colors hover:text-[#111827]">
                             View pricing

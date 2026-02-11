@@ -32,9 +32,9 @@ export default function Footer() {
               </p>
             </div>
 
-            <button className="bg-white text-[#0066FF] px-8 py-4 rounded-xl font-semibold text-base hover:scale-105 transition-transform shadow-lg active:scale-95">
+            <a href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true" target="_blank" rel="noopener noreferrer" className="bg-white text-[#0066FF] px-8 py-4 rounded-xl font-semibold text-base hover:scale-105 transition-transform shadow-lg active:scale-95">
               Schedule Demo
-            </button>
+            </a>
           </div>
         </div>
 
