@@ -19,7 +19,7 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  title: "Synapses",
+  title: "synappses",
   description: "Everything you need for your Ed-Tech",
 };
 

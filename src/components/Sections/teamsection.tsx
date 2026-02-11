@@ -57,7 +57,7 @@ export default function TeamSection() {
                         Meet the minds behind {" "}
                         <span className="text-xl font-bold tracking-tighter dark:text-white uppercase"></span>
                         <span className="bg-clip-text font-bold tracking-tighter dark:text-white text-neutral-900 ">
-                            Synapses
+                            synappses
                         </span>
                     </h2>
                     <p className="max-w-xl text-neutral-500 dark:text-neutral-400">

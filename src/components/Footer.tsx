@@ -61,7 +61,7 @@ export default function Footer() {
                 <div className="h-8 w-8 rounded-lg bg-black dark:bg-white flex items-center justify-center">
                   <div className="h-4 w-4 rounded-full bg-white dark:bg-black animate-pulse" />
                 </div>
-                <span className="text-xl font-bold tracking-tighter dark:text-white uppercase">Synapses</span>
+                <span className="text-xl font-bold tracking-tighter dark:text-white uppercase">synappses</span>
               </div>
               <p className="max-w-xs text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
                 Empowering the next generation of educators with AI-driven tools, seamless UX, and global scalability.
@@ -111,7 +111,7 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="mt-16 flex flex-col items-center justify-between border-t border-black/5 dark:border-white/5 pt-8 md:flex-row">
             <p className="text-xs text-neutral-500 dark:text-neutral-500">
-              © 2025 Synapses Built for the future of education.
+              © 2025 synappses Built for the future of education.
             </p>
             <div className="mt-4 flex items-center gap-2 text-xs text-neutral-500 md:mt-0">
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
