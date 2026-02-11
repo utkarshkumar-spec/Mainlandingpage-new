@@ -11,7 +11,7 @@ export default function FAQSection() {
 
             <section className=" ">
                 <div className="flex flex-col items-center text-center pb-18.5">
-                    <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white border border-blue-200 text-blue-600 text-sm font-light mb-4">
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#F7FAFE] border border-blue-200 text-blue-600 text-sm font-light mb-4">
                         <Image src="/message_svg.svg" alt="Message" width={25} height={25} />
                         <span className="font-light text-md">Doubts?</span>
                     </div>

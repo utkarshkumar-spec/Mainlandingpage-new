@@ -34,16 +34,16 @@ const FeatureCard = ({
 
 export default function FeaturesSection() {
   return (
-    <section className="relative py-14 overflow-hidden">
+    <section className="relative  overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="mb-20 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-black/5 bg-[#F7FAFE] dark:border-black/5 dark:bg-[#F7FAFE] dark:text-purple-400 text-lg font-thin mb-6">
-            <Sparkles className="w-3 h-3" />
+            <Sparkles className="w-5 h-5 text-[#2F6BFF]" />
             Core Platform Capabilities
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-neutral-900 dark:text-white mb-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-h tracking-tight text-neutral-900 dark:text-white mb-6 text-center">
             A learning platform built <br className="hidden md:block" />
             to look like your own product
           </h2>
@@ -218,13 +218,21 @@ export default function FeaturesSection() {
                       idx === 3 && "text-[#88A6FF] opacity-60 bg-white/60",
                     )}
                   >
-                    {label}
+                    {label !== "Cashfree Payments" ? (
+                      label
+                    ) : (   <Image
+                        src="https://res.cloudinary.com/dyktjldc4/image/upload/v1770815606/Cashfree_Payments_Logo_ar0bxf.jpg"
+                        alt="Cashfree Payments"
+                        width={100}
+                        height={100}
+                      />)}
+                    
                   </div>
                 ),
               )}
             </div>
             <div className="mt-6">
-              <h3 className="text-xl font-semibold text-neutral-900">Payments &amp; Monetization</h3>
+              <h3 className="text-xl font-semibold text-neutral-900">Payments &amp; Monetization Accept payments from 20+ countries with 5+ payment methods</h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-500">
                 Sell courses, bundles, live programs, community access, and mentorship from a single
                 catalog. Built-in payments allow you to scale revenue without external tools.

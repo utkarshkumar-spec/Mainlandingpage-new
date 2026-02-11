@@ -55,7 +55,7 @@ const ReviewCard = ({ quote, name, role, company }: {
 }) => (
   <div 
     className="flex-shrink-0 mx-6"
-    style={{ width: "873px", height: "513px" }}
+    style={{ width: "543px", height: "413px" }}
   >
     <div className="w-full h-full p-12 rounded-xl border border-gray-200 bg-white transition-all duration-300 group">
       {/* Stars */}
@@ -64,9 +64,6 @@ const ReviewCard = ({ quote, name, role, company }: {
           <Star key={i} className="w-7 h-7 fill-yellow-400 text-yellow-400" />
         ))}
       </div>
-      
-      {/* Large Quote Mark */}
-      <div className="text-7xl text-blue-100 mb-8">"</div>
       
       {/* Quote Text */}
       <p className="text-2xl text-gray-800 font-medium mb-10 leading-relaxed italic">
@@ -163,34 +160,6 @@ export default function Reviews() {
               ))}
             </motion.div>
           </div>
-
-
-          {/* Arrows */}
-          <div className="mt-16 flex justify-center items-center gap-6">
-            <button
-              className="w-16 h-16 rounded-full bg-blue-50/70 text-gray-700 flex items-center justify-center hover:bg-blue-100 transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              className="w-16 h-16 rounded-full bg-blue-50/70 text-gray-700 flex items-center justify-center hover:bg-blue-100 transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-
-          {/* Call to Action - NO SHADOW */}
-          {/* <div className="mt-20 text-center">
-            <button className="px-12 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xl font-bold hover:scale-105 transition-transform">
-              Join 5,000+ Happy Creators
-            </button>
-            
-            <p className="mt-8 text-gray-500 text-lg">
-              Average rating: 4.9/5 from 1,200+ reviews
-            </p>
-          </div> */}
         </div>
       </div>
     </section>

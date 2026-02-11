@@ -10,7 +10,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
-import { MoveRight } from "lucide-react";
+import { ChevronRight, MoveRight } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { NoiseBackground } from "../ui/noise-background";
 
@@ -29,7 +29,7 @@ export default function FullNavbar() {
         {/* Logo Section */}
         <a href="#" className="flex items-center gap-2 group">
 
-          <span className="text-xl font-bold font-sans tracking-tighter text-[#111827]">Synapses</span>
+          <span className="text-xl font-bold font-sans tracking-tighter text-[#111827]">synappses</span>
         </a>
 
         {/* Central Links */}
@@ -37,15 +37,11 @@ export default function FullNavbar() {
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <NoiseBackground
-            containerClassName="hidden md:block p-[1.5px] rounded-full"
-            gradientColors={["rgb(255, 100, 150)", "rgb(100, 150, 255)", "rgb(255, 200, 100)"]}
-          >
-            <button className="h-10 px-6 rounded-full bg-white dark:bg-black text-black dark:text-white text-xs font-bold transition-all active:scale-95">
-              Request Demo
-            </button>
-          </NoiseBackground>
+
+          <button className="flex h-10 w-full items-center justify-center gap-2 rounded-full bg-[#1F6BFF] px-4 text-md font-medium text-white  sm:w-auto">
+           Request Demo
+            <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </button>
         </div>
       </NavBody>
 
@@ -53,7 +49,7 @@ export default function FullNavbar() {
       <MobileNav className="w-full">
         <MobileNavHeader>
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold font-sans tracking-tighter text-[#111827]">Synapses</span>
+            <span className="text-xl font-bold font-sans tracking-tighter text-[#111827]">synappses</span>
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />

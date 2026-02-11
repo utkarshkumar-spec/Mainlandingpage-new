@@ -1,51 +1,50 @@
 "use client";
 
 import React from "react";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Twitter, Linkedin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white pt-34">
+    <footer className="w-full  pt-12">
       <div className="max-w-7xl mx-auto px-6">
-
-        {/* --- BLUE CTA BANNER --- */}
-        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-[#0066FF] to-[#99C2FF] p-8 md:p-16 mb-20 shadow-xl">
-          {/* Abstract Watermark Pattern */}
-          <div className="absolute right-0 top-0 h-full w-1/2 opacity-10 pointer-events-none">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="h-full w-full object-right">
-              <path
-                fill="white"
-                d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.6,85.5,-0.9C83.9,13.8,77.3,27.5,68.2,39.1C59,50.7,47.3,60.1,34.2,66.9C21,73.7,6.4,77.9,-8.6,76.4C-23.6,74.9,-38.9,67.7,-51.7,57.1C-64.4,46.5,-74.6,32.6,-78.9,17.2C-83.3,1.9,-81.8,-14.9,-75.4,-29.7C-69,-44.4,-57.8,-57.1,-44.4,-64.3C-31,-71.5,-15.5,-73.2,0.9,-74.8C17.3,-76.4,31.3,-83.6,44.7,-76.4Z"
-                transform="translate(140 60) scale(1.5)"
-              />
-            </svg>
+        
+        {/* --- UPGRADED BLUE CTA BANNER --- */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden rounded-[2.5rem] bg-[#0066FF] p-10 lg:p-16 mb-20 shadow-[0_30px_60px_-15px_rgba(0,102,255,0.3)] flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          {/* Abstract Blurred Circle Decoration (The "Glow") */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -mr-40 -mt-40 pointer-events-none" />
+          
+          <div className="relative z-10 text-left">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+              Start your teaching <br className="hidden md:block" /> journey today
+            </h2>
+            <p className="text-blue-50 text-base md:text-lg opacity-90 max-w-md">
+              Launch your first course in under 5 minutes with our AI-powered LMS dashboard. Join 5,000+ creators.
+            </p>
           </div>
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="max-w-2xl text-left">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-                Start your teaching <br className="hidden md:block" /> journey today
-              </h2>
-              <p className="text-blue-50 text-base md:text-lg opacity-90 max-w-md">
-                Launch your first course in under 5 minutes with our AI-powered LMS dashboard. Join 5,000+ creators.
-              </p>
-            </div>
-
-            <button className="bg-white text-[#0066FF] px-8 py-4 rounded-xl font-semibold text-base hover:scale-105 transition-transform shadow-lg active:scale-95">
-              Schedule Demo
-            </button>
-          </div>
-        </div>
+          <button className="relative z-10 bg-white text-[#0066FF] px-8 py-5 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all flex items-center gap-3 shadow-xl group active:scale-95">
+            <span>Schedule Demo</span>
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </button>
+        </motion.div>
 
         {/* --- FOOTER LINKS SECTION --- */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
-
+        <div className="grid  grid-cols-1 md:grid-cols-12 gap-12 pb-16">
+          
           {/* Logo and Intro */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              
-              <span className="text-2xl font-bold tracking-tight text-gray-900">Synappses</span>
+              <div className="h-10 w-10 rounded-xl bg-black flex items-center justify-center">
+                <div className="h-4 w-4 rounded-full bg-white" />
+              </div>
+              <span className="text-2xl font-bold tracking-tight text-gray-900">Synapses</span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-8">
               Empowering the next generation of educators with AI-driven tools, seamless UX, and global scalability.
@@ -97,7 +96,7 @@ export default function Footer() {
         {/* Copyright Line */}
         <div className="border-t border-gray-100 py-8">
           <p className="text-xs text-gray-400">
-            © 2025 Synappses Built for the future of education.
+            © 2025 Synapses Built for the future of education.
           </p>
         </div>
 

@@ -1,179 +1,171 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChevronRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const slides = [
     {
-        image: "/step1.png",
+        image: "/step3.png",
         alt: "Step 1 preview",
         title: "Schedule a Demo",
         description:
             "Start by booking a personalized demo. We walk you through the platform, understand your business model, and discuss how you plan to deliver learning.",
     },
     {
-        image: "/step2.png",
+        image: "/step1.png",
         alt: "Step 2 preview",
-        title: "Get a Custom Plan",
+        title: "Get a custom plan",
         description:
             "Based on your requirements—courses, cohorts, monetization, branding, and scale—we design a custom plan tailored to your usage and growth.",
     },
     {
-        image: "/step3.png",
-        alt: "Step 3 preview",
-        title: "Launch Your LMS",
+        image: "/step2.png",
+        alt: "Launch your branded LMS",
+        title: "Launch your branded LMS",
         description:
             "Receive access to your live admin panel and student-facing LMS—fully white-labeled with your domain, branding, and configurations, ready to onboard learners.",
     },
 ];
 
 export default function HowItWorksSection() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const slidesContainerRef = useRef<HTMLDivElement>(null);
-    const triggerRef = useRef<HTMLDivElement>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const horizontalRef = useRef<HTMLDivElement>(null);
+    const progressBarRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
-        if (!containerRef.current || !slidesContainerRef.current || !triggerRef.current) return;
+        const section = sectionRef.current;
+        const horizontal = horizontalRef.current;
+        if (!section || !horizontal) return;
 
-        // Get the horizontal container
-        const slidesContainer = slidesContainerRef.current;
-        const slidesArray = Array.from(slidesContainer.children) as HTMLElement[];
-        
-        // Calculate total width
-        let totalWidth = 0;
-        slidesArray.forEach(slide => {
-            totalWidth += slide.offsetWidth;
-        });
+        const totalSlides = slides.length;
 
-        // Get the container height
-        const containerHeight = containerRef.current.offsetHeight;
-        
-        // Calculate when the scroll should start
-        // We want it to start when the trigger element reaches the top of viewport
-        // and end after scrolling through total width
-        const startPosition = triggerRef.current.offsetTop;
+        let ctx = gsap.context(() => {
+            gsap.to(horizontal, {
+                x: () => -(horizontal.scrollWidth - window.innerWidth),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    pin: true,
+                    scrub: 1,
+                    start: "top top",
+                    end: () => "+=" + horizontal.scrollWidth,
+                    onUpdate: (self) => {
+                        const progress = self.progress;
+                        // Calculate index based on progress
+                        const newIndex = Math.min(
+                            Math.floor(progress * totalSlides),
+                            totalSlides - 1
+                        );
+                        setActiveIndex(newIndex);
 
-        // Create the horizontal scroll animation
-        gsap.to(slidesContainer, {
-            x: -totalWidth + window.innerWidth,
-            ease: "none",
-            scrollTrigger: {
-                trigger: triggerRef.current, // Use a separate trigger element
-                start: `top top`, // Start when trigger top hits viewport top
-                end: () => `+=${totalWidth}`, // Scroll for total width distance
-                scrub: true,
-                pin: containerRef.current, // Pin the container
-                pinSpacing: true,
-                anticipatePin: 1,
-                markers: false, // Set to true to see start/end positions
-            }
-        });
+                        // Animate the progress bar scale
+                        gsap.set(progressBarRef.current, { scaleX: progress });
+                    },
+                },
+            });
+        }, section);
 
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        return () => ctx.revert();
     }, []);
 
     return (
-        <section className="relative bg-white">
-            {/* Header Section - This sits at normal scroll position */}
-            <div className="w-full px-6 py-20">
-                <div className="max-w-4xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-700 mb-8">
-                        <Image
-                            src="/GettingStarted.svg"
-                            alt="Getting Started"
-                            width={18}
-                            height={18}
-                        />
-                        Getting Started
-                    </div>
-                    
-                    <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">
-                        From demo to launch in a few simple steps
-                    </h2>
+        <section ref={sectionRef} className="relative bg-white overflow-hidden">
+            <div className="flex flex-col  justify-between">
 
-                    <p className="text-lg text-gray-600 mb-12">
-                        We handle the setup, customization, and infrastructure—so you can
-                        focus on delivering education under your own brand.
-                    </p>
+                {/* HEADER */}
+                <div className="w-full px-6 pt-24 pb-4 z-10 bg-white">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F0F4FF] text-gray-700 mb-6">
+                            <Image src="/GettingStarted.svg" alt="icon" width={18} height={18} />
+                            Getting Started
+                        </div>
 
-                    <div className="flex flex-wrap justify-center gap-6">
-                        <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
-                            Schedule a Demo
-                        </a>
-                        <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
-                            Get a Custom Plan
-                        </a>
-                        <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
-                            Launch Your LMS
-                        </a>
+                        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight">
+                            From demo to launch <br /> in a few simple steps
+                        </h2>
+
+                        <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-10">
+                            Designed for ed-tech businesses that need full branding control,
+                            scalable infrastructure, and modern learning workflows.
+                        </p>
+
+                        {/* NAV LINKS */}
+                        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+                            {slides.map((slide, idx) => (
+                                <React.Fragment key={idx}>
+                                    <span className={`text-base font-medium transition-colors duration-300 ${
+                                        activeIndex === idx ? "text-blue-600" : "text-gray-400"
+                                    }`}>
+                                        {slide.title}
+                                    </span>
+                                    {idx !== slides.length - 1 && (
+                                        <ChevronRight className={`w-4 h-4 transition-colors duration-300 ${
+                                            activeIndex > idx ? "text-blue-600" : "text-gray-300"
+                                        }`} />
+                                    )}
+                                </React.Fragment>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* This is where horizontal scroll STARTS */}
-            {/* We'll place this lower from the top */}
-            <div 
-                ref={triggerRef}
-                className="relative"
-                style={{ height: '150px' }} // This creates space before horizontal scroll starts
-            >
-                {/* You can add any content here that shows before horizontal scroll */}
-                {/* Or leave it empty for spacing */}
-            </div>
-
-            {/* Horizontal Scroll Container - Positioned lower */}
-            <div 
-                ref={containerRef}
-                className="relative w-full h-screen"
-                style={{ marginTop: '-150px' }} // Pulls it up to overlap with trigger
-            >
-                {/* Sticky container that holds the slides */}
-                <div className="sticky top-20 h-[calc(100vh-80px)] overflow-hidden"> {/* Adjust top value to position lower */}
-                    <div 
-                        ref={slidesContainerRef}
-                        className="absolute top-0 left-0 h-full flex"
-                    >
+                {/* CENTER: HORIZONTAL IMAGES */}
+                <div className="flex-1 mt-24 relative flex items-center overflow-hidden">
+                    <div ref={horizontalRef} className="flex h-full items-center">
                         {slides.map((slide, index) => (
-                            <div
-                                key={index}
-                                className="w-screen h-full shrink-0 flex items-center justify-center p-4 md:p-8"
-                            >
-                                <div className="w-full max-w-6xl mx-auto flex flex-col">
-                                    <div className="relative w-full aspect-16/10 rounded-[2rem] overflow-hidden">
-                                        <Image
-                                            src={slide.image}
-                                            alt={slide.alt}
-                                            fill
-                                            className="object-contain"
-                                            priority={index === 0}
-                                            sizes="100vw"
-                                        />
-                                        {/* <h3 className="text-xl font-semibold text-neutral-900">
-                                            {slide.title}
-                                        </h3>
-                                        <p className="mt-2 text-sm leading-relaxed text-neutral-600 max-w-md">
-                                            {slide.description}
-                                        </p> */}
+                            <div key={index} className="w-screen flex-shrink-0 px-6 md:px-20">
+                                <div className="max-w-4xl mx-auto">
+                                    <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden bg-[#F8FAFC] border border-gray-100 shadow-sm">
+                                        {/* Browser Dots */}
+                                        <div className="flex gap-1.5 p-4">
+                                            <div className="w-2.5 h-2.5 rounded-full bg-red-300" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-amber-300" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-emerald-300" />
+                                        </div>
+                                        <div className="relative w-full h-[calc(100%-40px)] px-4 pb-4">
+                                            <Image
+                                                src={slide.image}
+                                                alt={slide.alt}
+                                                fill
+                                                className="object-contain"
+                                                priority={index === 0}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-            </div>
 
-            {/* Scroll indicator */}
-            <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-2 text-gray-600">
-                <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-                <span className="text-sm">Scroll to view steps</span>
+                {/* FOOTER: Text + Progress Bar (Matches your screenshot) */}
+                <div className="w-full px-6 pb-16 pt-8 bg-white z-10">
+                    <div className="max-w-4xl mx-auto">
+                        <div className="mb-10 min-h-[100px]">
+                            <h3 className="text-2xl font-semibold text-gray-900 mb-2 transition-all duration-300">
+                                {slides[activeIndex].title}
+                            </h3>
+                            <p className="text-gray-500 text-lg leading-relaxed max-w-3xl transition-all duration-300">
+                                {slides[activeIndex].description}
+                            </p>
+                        </div>
+
+                        {/* Progress Bar Container */}
+                        <div className="h-[3px] w-full bg-gray-50 rounded-full overflow-hidden">
+                            <div
+                                ref={progressBarRef}
+                                className="h-full bg-blue-600 w-full origin-left scale-x-0 transition-transform duration-100 ease-out"
+                            />
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     );
