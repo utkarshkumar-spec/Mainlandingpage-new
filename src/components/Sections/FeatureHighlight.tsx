@@ -34,7 +34,7 @@ const FeatureCard = ({
 
 export default function FeaturesSection() {
   return (
-    <section className="relative  overflow-hidden">
+    <section className="relative  overflow-hidden mb-[60px]">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="mb-20 text-center max-w-3xl mx-auto">
@@ -69,7 +69,7 @@ export default function FeaturesSection() {
             </div>
             <div className="mt-8 p-8">
               <h3 className="text-2xl font-semibold text-neutral-900">AI-Assisted Insights</h3>
-              <p className="mt-2 text-md font-light leading-relaxed text-neutral-700">
+              <p className="mt-2 text-md font-redular leading-relaxed text-neutral-700">
                 Understand how learners engage with your content. Track progress, completion,
                 drop-offs, and revenue with analytics designed for decision-makers.
               </p>
@@ -77,32 +77,24 @@ export default function FeaturesSection() {
           </FeatureCard>
 
           {/* Test Scheduling */}
-          <FeatureCard className="md:col-span-4 bg-[#F6FAFF] pt-3 px-6 pb-6 after:bg-[radial-gradient(circle_at_85%_10%,rgba(206,228,255,0.9),transparent_60%),radial-gradient(circle_at_12%_88%,rgba(218,236,255,0.85),transparent_55%)] overflow-hidden">
-            <div className="relative rounded-md border border-blue-100 bg-white/85 p-6 shadow-[0_12px_30px_rgba(59,130,246,0.08)] backdrop-blur-sm">
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-linear-to-b from-transparent via-white/60 to-white/95" />
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center rounded-sm gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-[#18CCFC] flex items-center justify-center text-white ]">
-                    <GraduationCap className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] text-neutral-500">Test Title</p>
-                    <p className="text-sm font-medium text-neutral-900">Chemistry organic test</p>
-                  </div>
-                </div>
-                <div className="h-9 w-9 rounded-full border border-blue-200 flex items-center justify-center text-[#1F6BFF] bg-white shadow-[0_6px_16px_rgba(59,130,246,0.12)]">
-                  <ChevronRight className="h-4 w-4" />
-                </div>
-              </div>
-              <div className="mt-2 text-[10px] text-neutral-500 pl-13">Time &amp; Date</div>
-              <div className="text-base font-semibold text-neutral-900 pl-13">11:00pm 26/03/2026</div>
-              <button className="mt-5 mx-auto flex items-center justify-center rounded-full bg-[#1F6BFF] px-7 py-2.5 text-xs font-semibold text-white">
-                Schedule
-              </button>
+          {/* Test Scheduling */}
+          <FeatureCard className="md:col-span-4 bg-[#F6FAFF] after:bg-[radial-gradient(circle_at_85%_10%,rgba(206,228,255,0.9),transparent_60%),radial-gradient(circle_at_12%_88%,rgba(218,236,255,0.85),transparent_55%)] overflow-hidden">
+            <div className="relative">
+              {/* Replaced the complex div with the SVG asset */}
+              <Image
+                src="/schedule.svg" 
+                alt="Test scheduling interface"
+                className="h-auto w-full"
+                width={400}
+                height={300}
+              />
             </div>
-            <div className="mt-7">
-              <h3 className="text-2xl font-semibold text-neutral-900">Test Scheduling</h3>
-              <p className="mt-2 text-md font-light leading-relaxed text-neutral-700">
+            
+            <div className="p-8">
+              <h3 className="text-[22px] font-bold text-[#111827]">
+                Test Scheduling
+              </h3>
+              <p className="mt-2 text-[15px] font-medium leading-relaxed text-[#4B5563]">
                 Group learners into cohorts with defined timelines, assignments, and milestones.
                 Ideal for bootcamps, live programs, and structured learning paths.
               </p>
@@ -137,7 +129,7 @@ export default function FeaturesSection() {
             </div>
             <div className="mt-7">
               <h3 className="text-2xl font-semibold text-neutral-900">Announcement &amp; Notifications</h3>
-              <p className="mt-2 text-md font-light leading-relaxed text-neutral-700">
+              <p className="mt-2 text-md font-redular leading-relaxed text-neutral-700">
                 Send platform-wide announcements, course updates, and important alerts directly from
                 the admin panel. Notifications are delivered in-app and via email—fully branded under
                 your domain.
@@ -150,7 +142,7 @@ export default function FeaturesSection() {
             <div className="flex flex-col gap-8 md:flex-row md:items-center">
               <div className="md:w-1/2">
                 <h3 className="text-2xl font-semibold text-neutral-900">Complete Brand Control</h3>
-                <p className="mt-2 text-md font-light leading-relaxed text-neutral-700">
+                <p className="mt-2 text-md font-redular leading-relaxed text-neutral-700">
                   Run the platform entirely under your own identity. Manage custom domains, brand
                   colors, logos, and communication templates directly from the admin panel—without
                   exposing the underlying SaaS.
@@ -190,7 +182,7 @@ export default function FeaturesSection() {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold text-neutral-900">Security &amp; Access Control</h3>
-                <p className="mt-2 text-md font-light leading-relaxed text-neutral-700">
+                <p className="mt-2 text-md font-redular leading-relaxed text-neutral-700">
                   Protect content using device limits, IP monitoring, access logs, and role-based
                   permissions. Prevent account sharing and maintain platform integrity.
                 </p>
@@ -226,8 +218,8 @@ export default function FeaturesSection() {
               )}
             </div>
             <div className="mt-6">
-              <h3 className="text-xl font-semibold text-neutral-900">Payments &amp; Monetization Accept payments from 20+ countries with 5+ payment methods</h3>
-              <p className="mt-2 text-md font-light leading-relaxed text-neutral-700">
+              <h3 className="text-xl font-semibold text-neutral-900">Payments &amp; Monetization </h3>
+              <p className="mt-2 text-md font-redular leading-relaxed text-neutral-700">
                 Sell courses, bundles, live programs, community access, and mentorship from a single
                 catalog. Built-in payments allow you to scale revenue without external tools.
               </p>

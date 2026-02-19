@@ -1,8 +1,20 @@
 "use client";
 
 import React from "react";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Github, X, Linkedin, Instagram } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    aria-hidden="true" 
+    className={className} 
+    fill="currentColor"
+  >
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+  </svg>
+);
 
 export default function Footer() {
   return (
@@ -45,15 +57,50 @@ export default function Footer() {
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-6">
               
-              <span className="text-2xl font-bold tracking-tight text-gray-900">Synappses</span>
+              <Image src="/synappses_logo.svg" alt="synappses logo" width={140} height={140} />
             </div>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-8">
               Empowering the next generation of educators with AI-driven tools, seamless UX, and global scalability.
             </p>
             <div className="flex gap-5">
-              <Twitter className="h-5 w-5 text-gray-800 hover:text-[#0066FF] cursor-pointer transition-colors" />
-              <Github className="h-5 w-5 text-gray-800 hover:text-[#0066FF] cursor-pointer transition-colors" />
-              <Linkedin className="h-5 w-5 text-gray-800 hover:text-[#0066FF] cursor-pointer transition-colors" />
+              {/* X.com Link */}
+              <a 
+                href="https://x.com/Synappses_in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Follow us on X"
+              >
+                <XIcon className="h-5 w-5 text-gray-800 hover:text-[#0066FF] transition-colors" />
+              </a>
+
+              {/* LinkedIn Link */}
+              <a 
+                href="https://www.linkedin.com/company/synappses-in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Follow us on LinkedIn"
+              >
+                <Linkedin className="h-5 w-5 text-gray-800 hover:text-[#0066FF] transition-colors" />
+              </a>
+
+              {/* Instagram Link */}
+              <a 
+                href="https://www.instagram.com/synappses.in/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="h-5 w-5 text-gray-800 hover:text-[#E4405F] transition-colors" />
+              </a>
+
+              {/* Github Link (Optional - keeping it from your previous code) */}
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Github className="h-5 w-5 text-gray-800 hover:text-[#0066FF] transition-colors" />
+              </a>
             </div>
           </div>
 

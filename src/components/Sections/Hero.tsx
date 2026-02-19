@@ -35,14 +35,14 @@ export default function HeroSectionOne() {
                         <span className="flex -tracking-[0.05em] items-center font-medium text-xs gap-2">
                             AI Course Generation
                         </span>
-                        <ChevronRight className="h-3 w-3 text-[#1863FF] transition-transform group-hover:translate-x-1" />
+                        {/* <ChevronRight className="h-3 w-3 text-[#1863FF] transition-transform group-hover:translate-x-1" /> */}
                     </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.05 }}
-                        className="mt-8 max-w-3xl text-balance text-sm font-semibold leading-[1.05] tracking-tight text-[#111827] sm:text-5xl md:text-6xl lg:text-6xl"
+                        className="mt-6 md:mt-8 max-w-4xl text-balance text-[32px] font-bold leading-[1.1] tracking-tight text-[#111827] sm:text-5xl md:text-6xl lg:text-7xl"
                     >
                         Everything you need to{" "}
                         <FlipWords words={words} className="px-0 text-[#1F6BFF]" />

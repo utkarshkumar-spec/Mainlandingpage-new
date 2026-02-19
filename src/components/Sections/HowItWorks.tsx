@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const slides = [
     {
         image: "/step1.jpg",
+        ref: "step1",
         alt: "Step 1 preview",
         title: "Schedule a Demo",
         description:
@@ -18,6 +19,7 @@ const slides = [
     },
     {
         image: "/step2.jpg",
+        ref: "step2",
         alt: "Step 2 preview",
         title: "Get a custom plan",
         description:
@@ -25,6 +27,7 @@ const slides = [
     },
     {
         image: "/step3.svg",
+        ref: "step3",
         alt: "Step 3 preview",
         title: "Launch Your LMS",
         description:
@@ -69,7 +72,7 @@ export default function HowItWorksSection() {
     }, []);
 
     return (
-        <section className="relative bg-white font-manrope">
+        <section className="relative bg-white font-manrope mb-30">
             {/* Header Section - This sits at normal scroll position */}
             <div className="w-full px-6 py-14">
                 <div className="max-w-4xl mx-auto text-center">
@@ -89,22 +92,22 @@ export default function HowItWorksSection() {
                         in a few simple steps
                     </h2>
 
-                    <p className="text-xl text-gray-500 font-light mb-12">
+                    <p className="text-xl text-gray-500 font-medium mb-12">
                         We handle the setup, customization, and infrastructure 
                         <br/> so you can
                         focus on delivering education under your own brand.
                     </p>
 
                     <div className="flex flex-wrap text-xl justify-center gap-6 items-center">
-                        <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
+                        <a href="step1" className="text-gray-700 hover:text-blue-600 transition-colors">
                             Schedule a Demo
                         </a>
                         <ChevronRight className="w-4 h-4 " />
-                        <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
+                        <a href="step2" className="text-gray-700 hover:text-blue-600 transition-colors">
                             Get a Custom Plan
                         </a>
                         <ChevronRight className="w-4 h-4 " />
-                        <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
+                        <a href="step3" className="text-gray-700 hover:text-blue-600 transition-colors">
                             Launch Your LMS
                         </a>
                     </div>
