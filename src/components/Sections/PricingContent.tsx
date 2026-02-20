@@ -1,60 +1,153 @@
-import React from "react";
+"use client";
+
+import { Check } from "lucide-react";
+
+const plans = [
+  {
+    name: "Starter",
+    price: "$10",
+    period: "/monthly",
+    description: "Perfect for developers building web agents and data workflows.",
+    buttonText: "Book plan",
+    isPopular: false,
+    features: [
+      "Parse API",
+      "Up to 5 seats for Reducto Studio",
+      "Parse API",
+      "Up to 5 seats for Reducto Studio",
+      "Up to 5 seats for Reducto Studio",
+      "Up to 5 seats for Reducto Studio",
+    ],
+  },
+  {
+    name: "Beginner",
+    price: "$50",
+    period: "/monthly",
+    description: "Perfect for developers building web agents and data workflows.",
+    buttonText: "Book plan",
+    isPopular: true,
+    features: [
+      "Parse API",
+      "Up to 5 seats for Reducto Studio",
+      "Parse API",
+      "Up to 5 seats for Reducto Studio",
+      "Up to 5 seats for Reducto Studio",
+      "Up to 5 seats for Reducto Studio",
+    ],
+  },
+  {
+    name: "Enterprise",
+    price: "$90",
+    period: "/monthly",
+    description: "Perfect for developers building web agents and data workflows.",
+    buttonText: "Book plan",
+    isPopular: false,
+    features: [
+      "Parse API",
+      "Up to 5 seats for Reducto Studio",
+      "Parse API",
+      "Up to 5 seats for Reducto Studio",
+      "Up to 5 seats for Reducto Studio",
+      "Up to 5 seats for Reducto Studio",
+    ],
+  },
+];
 
 export default function PricingContent() {
   return (
-    <div className="relative mx-auto w-full flex flex-col pt-32 md:pt-42 pb-20">
-      <div className="container mx-auto px-4 mb-16 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-neutral-900 mb-6">
-          Simple, transparent pricing
-        </h1>
-        <p className="text-xl text-neutral-500 max-w-2xl mx-auto">
-          Choose the plan that fits your needs. No hidden fees, cancel anytime.
-        </p>
-      </div>
+    <section className="px-4 sm:px-6 lg:px-8 pb-24 max-w-7xl mx-auto w-full">
+      {/* Outer wrapper to create the unified card look */}
+      <div className="grid grid-cols-1 md:grid-cols-3 bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden">
+        
+        {plans.map((plan, index) => {
+          const isMiddle = index === 1;
 
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          <div className="p-8 rounded-2xl border border-gray-200 bg-white shadow-sm flex flex-col">
-            <h3 className="text-xl font-semibold mb-2">Starter</h3>
-            <p className="text-3xl font-bold mb-4">
-              $0 <span className="text-base font-normal text-gray-500">/mo</span>
-            </p>
-            <p className="text-gray-500 mb-8 flex-grow">
-              Perfect for trying out the platform.
-            </p>
-            <button className="w-full py-3 rounded-full border border-blue-600 text-blue-600 font-bold hover:bg-blue-50 transition-colors">
-              Get Started
-            </button>
-          </div>
+          return (
+            <div
+              key={plan.name}
+              className={`p-8 lg:p-10 flex flex-col ${
+                isMiddle ? "bg-[#0055FF] text-white" : "bg-white text-gray-900"
+              }`}
+            >
+              {/* Plan Header */}
+              <div className="flex items-center gap-3 mb-4">
+                <h3 className="text-xl font-medium">{plan.name}</h3>
+                {plan.isPopular && (
+                  <span className="bg-white text-black text-[11px] font-bold px-3 py-1 rounded-full tracking-wide">
+                    Most popular
+                  </span>
+                )}
+              </div>
 
-          <div className="p-8 rounded-2xl border border-blue-200 bg-blue-50/30 shadow-md flex flex-col relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-              POPULAR
+              {/* Pricing */}
+              <div className="flex items-baseline mb-4">
+                <span className="text-5xl font-medium tracking-tight">
+                  {plan.price}
+                </span>
+                <span
+                  className={`ml-1 text-sm ${
+                    isMiddle ? "text-blue-200" : "text-gray-400"
+                  }`}
+                >
+                  {plan.period}
+                </span>
+              </div>
+
+              {/* Description */}
+              <p
+                className={`text-[15px] leading-relaxed mb-8 min-h-[48px] ${
+                  isMiddle ? "text-blue-100" : "text-gray-500"
+                }`}
+              >
+                {plan.description}
+              </p>
+
+              {/* CTA Button */}
+              <button
+                className={`w-full py-3.5 rounded-full text-[15px] font-medium transition-colors duration-200 mb-10 ${
+                  isMiddle
+                    ? "bg-white text-black hover:bg-gray-50"
+                    : "bg-black text-white hover:bg-gray-800"
+                }`}
+              >
+                {plan.buttonText}
+              </button>
+
+              {/* Features List */}
+              <div className="flex-1">
+                <p
+                  className={`text-sm font-medium mb-5 ${
+                    isMiddle ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  Features
+                </p>
+                <ul className="space-y-4 text-[14px]">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      {isMiddle ? (
+                        // White circle with blue check for the middle card
+                        <div className="shrink-0 w-5 h-5 rounded-full bg-white flex items-center justify-center mt-0.5">
+                          <Check className="w-3.5 h-3.5 text-[#0055FF]" strokeWidth={3} />
+                        </div>
+                      ) : (
+                        // Simple green check for the outer cards
+                        <Check className="shrink-0 w-5 h-5 text-[#34C759] mt-0.5" strokeWidth={2.5} />
+                      )}
+                      <span
+                        className={isMiddle ? "text-blue-50" : "text-gray-600"}
+                      >
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-blue-900">Pro</h3>
-            <p className="text-3xl font-bold mb-4">
-              $29 <span className="text-base font-normal text-gray-500">/mo</span>
-            </p>
-            <p className="text-gray-600 mb-8 flex-grow">
-              For growing teams and businesses needing more power.
-            </p>
-            <button className="w-full py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200">
-              Get Started
-            </button>
-          </div>
-
-          <div className="p-8 rounded-2xl border border-gray-200 bg-white shadow-sm flex flex-col">
-            <h3 className="text-xl font-semibold mb-2">Enterprise</h3>
-            <p className="text-3xl font-bold mb-4">Custom</p>
-            <p className="text-gray-500 mb-8 flex-grow">
-              For large organizations with specific security needs.
-            </p>
-            <button className="w-full py-3 rounded-full border border-gray-300 text-gray-700 font-bold hover:bg-gray-50 transition-colors">
-              Contact Sales
-            </button>
-          </div>
-        </div>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 }

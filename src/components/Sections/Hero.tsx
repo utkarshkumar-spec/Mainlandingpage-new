@@ -89,7 +89,7 @@ export default function HeroSectionOne() {
           </div>
         </div>
 
-        <div
+        {/* <div
           ref={imageRef}
           className="relative flex justify-center md:mt-20 md:h-[120vh]"
         >
@@ -115,7 +115,7 @@ export default function HeroSectionOne() {
               </div>
             </div>
           </motion.div>
-        </div>
+        </div> */}
       </main>
     </div>
   );
