@@ -4,7 +4,7 @@ import FeaturesSection from "@/components/Sections/FeatureHighlight";
 import HeroSectionOne from "@/components/Sections/Hero";
 import HowItWorksSection from "@/components/Sections/HowItWorks";
 import Reviews from "@/components/Sections/review";
-
+ // Added import
 
 export default function Home() {
   return (
@@ -27,10 +27,12 @@ export default function Home() {
           <Reviews />
         </section>
 
+        {/* Added the Branded App CTA right above the FAQ */}
+       
+
         <section id="faq" className="scroll-mt-20">
           <FAQSection />
         </section>
-
 
       </div>
       <div className=" ">
