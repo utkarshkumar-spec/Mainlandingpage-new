@@ -151,9 +151,9 @@ export default function FeaturesSection() {
           </FeatureCard>
 
           {/* Brand Control */}
-          <FeatureCard className="md:col-span-8 bg-[#F7FAFF] p-6 after:bg-[radial-gradient(circle_at_85%_5%,rgba(206,228,255,0.9),transparent_60%),radial-gradient(circle_at_10%_85%,rgba(222,240,255,0.85),transparent_55%)]">
+          <FeatureCard className="md:col-span-8 bg-[#F7FAFF] after:bg-[radial-gradient(circle_at_85%_5%,rgba(206,228,255,0.9),transparent_60%),radial-gradient(circle_at_10%_85%,rgba(222,240,255,0.85),transparent_55%)]">
             <div className="flex flex-col gap-8 md:flex-row md:items-center">
-              <div className="md:w-1/2">
+              <div className="md:w-1/2 p-6">
                 <h3 className="text-2xl font-semibold text-neutral-900">
                   Complete Brand Control
                 </h3>
@@ -170,16 +170,16 @@ export default function FeaturesSection() {
                   alt="Brand control preview"
                   width={550}
                   height={280}
-                  className="w-full h-auto"
+                  className="w-full h-auto pb-6 pl-6"
                 />
               </div>
             </div>
           </FeatureCard>
 
           {/* Security */}
-          <FeatureCard className="md:col-span-6 bg-[#F7FAFF] p-6 after:bg-[radial-gradient(circle_at_90%_10%,rgba(208,229,255,0.85),transparent_30%)]">
+          <FeatureCard className="md:col-span-6 bg-[#F7FAFF]  after:bg-[radial-gradient(circle_at_90%_10%,rgba(208,229,255,0.85),transparent_30%)]">
             <div className="flex flex-col gap-3">
-              <div className="relative w-65 md:-translate-x-10">
+              <div className="relative w-65 md:-translate-x-10 pt-6 pr-6">
                 <Image
                   src="/DeviceMacbook.png"
                   alt="Security laptop"
@@ -197,10 +197,10 @@ export default function FeaturesSection() {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-neutral-900">
+                <h3 className="text-2xl font-semibold text-neutral-900 px-6">
                   Security &amp; Access Control
                 </h3>
-                <p className="mt-2 text-md font-redular leading-relaxed text-neutral-700">
+                <p className="mt-2 text-md font-redular leading-relaxed text-neutral-700 px-6 pb-6">
                   Protect your content with device restrictions, IP tracking,
                   access logs, and role-based permissions. Prevent account
                   sharing and protect platform integrity while ensuring access
