@@ -55,8 +55,10 @@ const plans = [
 
 export default function PricingContent() {
   return (
-    <section className="mx-auto w-full max-w-[1362px] px-4 pb-24 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 gap-[24px] md:grid-cols-3">
+    <section className="px-4 sm:px-6 lg:px-8 pb-24 max-w-7xl mx-auto -mt-80 w-full">
+      {/* Outer wrapper to create the unified card look */}
+      <div className="grid grid-cols-1 md:grid-cols-3 bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden">
+        
         {plans.map((plan, index) => {
           const isMiddle = index === 1;
 

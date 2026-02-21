@@ -14,7 +14,7 @@ export default function PricingPage() {
       
       <PricingContent />
       
-      <TrustedCompanies />
+      {/* <TrustedCompanies /> */}
       
       {/* Added the Branded App section */}
       <div className="mt-12">
