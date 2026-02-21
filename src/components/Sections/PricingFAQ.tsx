@@ -83,9 +83,11 @@ export default function PricingFAQ() {
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between py-5 text-left focus:outline-none group"
                 >
-                  <span className="text-[15px] font-medium text-gray-900 pr-8">
+                  {/* UPDATED: Applied Figma typography settings here */}
+                  <span className="text-[20px] leading-none tracking-[-0.04em] font-medium text-black pr-8">
                     {faq.question}
                   </span>
+                  
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.2, ease: "easeInOut" }}

@@ -9,10 +9,11 @@ const duplicatedLogos = [...placeholders, ...placeholders];
 export default function TrustedCompanies() {
   return (
     <section className="py-12 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Updated max-width to exactly 1362px as per Figma */}
+      <div className="mx-auto max-w-[1362px] px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
-        <h3 className="text-center text-[15px] font-medium text-gray-500 mb-10">
+        <h3 className="mb-10 text-center text-[15px] font-medium text-gray-500">
           Trusted by fast-growing companies around the world
         </h3>
         
@@ -20,14 +21,15 @@ export default function TrustedCompanies() {
         <div className="relative flex items-center">
           
           {/* Left White Gradient Fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-24 bg-gradient-to-r from-white to-transparent md:w-40" />
           
           {/* Right White Gradient Fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-24 bg-gradient-to-l from-white to-transparent md:w-40" />
 
           {/* Scrolling Track */}
           <motion.div
-            className="flex gap-6 md:gap-10 w-max"
+            // Updated gap to exactly 24px
+            className="flex w-max gap-[24px]"
             animate={{
               x: ["0%", "-50%"],
             }}
@@ -40,11 +42,11 @@ export default function TrustedCompanies() {
             {duplicatedLogos.map((item, index) => (
               <div
                 key={index}
-                // These classes match your gray placeholder boxes perfectly
-                className="h-14 w-36 md:h-16 md:w-48 bg-gray-200/80 shrink-0"
+                // Updated height to 106px and calculated width (207px) to fit perfectly
+                className="h-[106px] w-[207px] shrink-0 bg-gray-200/80"
               >
                 {/* NOTE: When you have your actual logos, replace this div with:
-                  <Image src={`/logos/logo-${item}.svg`} alt="Company Logo" width={150} height={50} className="object-contain" />
+                  <Image src={`/logos/logo-${item}.svg`} alt="Company Logo" width={207} height={106} className="object-contain" />
                 */}
               </div>
             ))}
