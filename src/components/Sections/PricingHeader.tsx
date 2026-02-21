@@ -8,7 +8,7 @@ export default function PricingHeader() {
   const [isAnnual, setIsAnnual] = useState(true);
 
   return (
-    <section className="pt-24 pb-12 px-4 flex flex-col items-center text-center">
+    <section className="h-[914px] pt-40 pb-12 px-4 flex flex-col items-center text-center bg-[linear-gradient(180deg,_rgba(255,255,255,0.1)_14%,_rgba(0,102,255,0.1)_100%)]">
       {/* Headings */}
       <h1 className="text-[64px] md:text-[64px] lg:text-[64px] font-semibold tracking-tighter text-gray-900 leading-16">
         Plans designed to match <br className="hidden md:block" />
