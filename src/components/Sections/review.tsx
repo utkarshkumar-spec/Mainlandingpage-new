@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MessageSquare, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star } from "lucide-react";
 import Image from "next/image";
 
 const testimonials = [
@@ -53,41 +53,38 @@ const ReviewCard = ({ quote, name, role, company }: {
   role: string;
   company: string;
 }) => (
-  <div 
-    className="flex-shrink-0 mx-6"
-    style={{ width: "543px", height: "413px" }}
-  >
-    <div className="w-full h-full p-12 rounded-xl border border-gray-200 bg-white transition-all duration-300 group">
+  <div className="mx-2 w-[84vw] max-w-[22rem] shrink-0 sm:mx-3 sm:w-[72vw] sm:max-w-[28rem] md:mx-6 md:w-[34rem] md:max-w-none">
+    <div className="h-full min-h-[18rem] rounded-xl border border-gray-200 bg-white p-5 transition-all duration-300 sm:min-h-[22rem] sm:p-8 md:min-h-[25.75rem] md:p-12">
       {/* Stars */}
-      <div className="flex gap-2 mb-8">
+      <div className="mb-5 flex gap-1.5 sm:mb-7 sm:gap-2 md:mb-8">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-7 h-7 fill-yellow-400 text-yellow-400" />
+          <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400 sm:h-5 sm:w-5 md:h-7 md:w-7" />
         ))}
       </div>
       
       {/* Quote Text */}
-      <p className="text-2xl text-gray-800 font-medium mb-10 leading-relaxed italic">
+      <p className="mb-6 text-base font-medium italic leading-7 text-gray-800 sm:mb-8 sm:text-xl sm:leading-8 md:mb-10 md:text-2xl md:leading-relaxed">
         "{quote}"
       </p>
       
       {/* Author Info */}
-      <div className="border-t border-gray-100 pt-8">
-        <div className="flex items-center gap-6">
+      <div className="border-t border-gray-100 pt-5 sm:pt-6 md:pt-8">
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
           {/* Avatar Placeholder */}
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
-            <span className="text-2xl font-bold text-white">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500 sm:h-12 sm:w-12 md:h-16 md:w-16">
+            <span className="text-base font-bold text-white sm:text-xl md:text-2xl">
               {name.charAt(0)}
             </span>
           </div>
           
           <div>
-            <div className="font-bold text-xl text-gray-900">
+            <div className="text-base font-bold text-gray-900 sm:text-lg md:text-xl">
               {name}
             </div>
-            <div className="text-lg text-gray-600">
+            <div className="text-sm text-gray-600 sm:text-base md:text-lg">
               {role}
             </div>
-            <div className="text-gray-500">
+            <div className="text-xs text-gray-500 sm:text-sm md:text-base">
               {company}
             </div>
           </div>
@@ -100,16 +97,16 @@ const ReviewCard = ({ quote, name, role, company }: {
 export default function Reviews() {
   return (
     <section 
-      className="relative overflow-hidden w-full"
+      className="relative w-full overflow-hidden"
       style={{
         background: "linear-gradient(180deg, #F7FAFE 0%, #FFFFFF 100%)"
       }}
     >
-      <div className="py-32 w-full">
-        <div className="px-4 w-full">
+      <div className="w-full py-16 sm:py-20 md:py-24">
+        <div className="mx-auto w-full max-w-[90rem] px-4 sm:px-6">
           {/* Header */}
-          <div className="flex flex-col items-center text-center mb-14 w-full">
-            <div className="flex items-center gap-2 px-4 py-3 rounded-full bg-white border border-blue-200 text-blue-600 text-sm font-light mb-4">
+          <div className="mb-10 flex w-full flex-col items-center text-center sm:mb-12 md:mb-14">
+            <div className="mb-4 flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-light text-blue-600 sm:py-3">
               <Image
                 src="/mdi_heart.svg"
                 alt="Heart"
@@ -119,26 +116,26 @@ export default function Reviews() {
               <span>Wall of Love</span>
             </div>
             
-            <h2 className="text-5xl md:text-5xl font-semibold tracking-tightAll Your Q text-gray-900 mb-6">
+            <h2 className="mb-4 text-3xl font-semibold leading-[1.12] tracking-tight text-gray-900 sm:text-4xl md:mb-6 md:text-5xl">
               See what all the talk is about
             </h2>
             
-            <p className="text-xl text-gray-500 max-w-100">
+            <p className="mx-auto max-w-2xl text-base leading-7 text-gray-500 sm:text-lg sm:leading-8 md:text-xl">
               Don't take our word for it. Here is what the community has to say about our platform.
             </p>
           </div>
 
           {/* Single Row Horizontal Marquee */}
-          <div className="relative overflow-hidden py-10 w-full">
+          <div className="relative w-full overflow-hidden py-6 sm:py-8 md:py-10">
             {/* Gradient Overlays */}
             <div 
-              className="absolute left-0 top-0 w-48 h-full z-10 pointer-events-none"
+              className="pointer-events-none absolute left-0 top-0 z-10 h-full w-10 sm:w-20 md:w-48"
               style={{
                 background: "linear-gradient(90deg, #F7FAFE 0%, transparent 100%)"
               }}
             />
             <div 
-              className="absolute right-0 top-0 w-48 h-full z-10 pointer-events-none"
+              className="pointer-events-none absolute right-0 top-0 z-10 h-full w-10 sm:w-20 md:w-48"
               style={{
                 background: "linear-gradient(270deg, #F7FAFE 0%, transparent 100%)"
               }}
