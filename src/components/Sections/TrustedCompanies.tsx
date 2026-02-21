@@ -8,7 +8,7 @@ const duplicatedLogos = [...placeholders, ...placeholders];
 
 export default function TrustedCompanies() {
   return (
-    <section className="py-12 bg-white overflow-hidden">
+    <section className="bg-white py-12">
       {/* Updated max-width to exactly 1362px as per Figma */}
       <div className="mx-auto max-w-[1362px] px-4 sm:px-6 lg:px-8">
         
@@ -17,19 +17,13 @@ export default function TrustedCompanies() {
           Trusted by fast-growing companies around the world
         </h3>
         
-        {/* Marquee Container */}
-        <div className="relative flex items-center">
+        {/* Marquee Container with CSS Mask for perfect transparent fading edges */}
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           
-          {/* Left White Gradient Fade */}
-          <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-24 bg-gradient-to-r from-white to-transparent md:w-40" />
-          
-          {/* Right White Gradient Fade */}
-          <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-24 bg-gradient-to-l from-white to-transparent md:w-40" />
-
           {/* Scrolling Track */}
           <motion.div
             // Updated gap to exactly 24px
-            className="flex w-max gap-[24px]"
+            className="flex w-max gap-[24px] pr-[24px]"
             animate={{
               x: ["0%", "-50%"],
             }}
