@@ -34,23 +34,23 @@ const FeatureCard = ({
 
 export default function FeaturesSection() {
   return (
-    <section className="relative  overflow-hidden mb-[60px]">
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="relative overflow-hidden mb-16">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-20 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#F7FAFE] border border-blue-200 text-lg font-light mb-4">
+        <div className="mx-auto mb-12 w-full max-w-3xl text-center sm:mb-16 md:mb-20">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-[#F7FAFE] px-4 py-2 text-sm font-light sm:px-5">
             <Image src="/sparkle.svg" alt="Message" width={20} height={20} />
             <span className="font-light text-sm">
               Core Platform Capabilities
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight text-neutral-900 dark:text-white mb-6 text-center">
+          <h2 className="mb-4 text-center text-2xl font-semibold leading-[1.15] tracking-tight text-neutral-900 dark:text-white sm:text-3xl md:mb-6 md:text-5xl">
             A learning platform built <br className="hidden md:block" />
             to look like your own product
           </h2>
 
-          <p className="text-xl w-140 text-neutral-500 dark:text-neutral-400 text-center mx-auto">
+          <p className="mx-auto w-full max-w-2xl text-center text-base leading-7 text-neutral-500 dark:text-neutral-400 sm:text-lg md:text-xl md:leading-8">
             Designed for ed-tech businesses that need full branding control,
             scalable infrastructure, and modern learning workflows.
           </p>
@@ -212,7 +212,7 @@ export default function FeaturesSection() {
 
           {/* Payments */}
           <FeatureCard className="md:col-span-6 bg-[#F7FAFF] p-6 after:bg-[radial-gradient(circle_at_80%_10%,rgba(208,229,255,0.9),transparent_60%),radial-gradient(circle_at_15%_90%,rgba(224,240,255,0.85),transparent_55%)]">
-            <div className="flex items-center justify-center gap-6 py-4">
+            <div className="mx-auto grid w-full max-w-88 grid-cols-[1fr_1fr_1fr_1fr_1fr] items-center justify-items-center gap-1.5 py-4 sm:max-w-120 sm:gap-3 md:max-w-136 md:gap-4">
               {[
                 "Coming soon",
                 "Coming soon",
@@ -223,9 +223,9 @@ export default function FeaturesSection() {
                 <div
                   key={idx}
                   className={cn(
-                    "h-20 w-20 flex items-center justify-center text-center rounded-full border border-[#CFE0FF] bg-white/80 text-[10px] text-[#2F6BFF] shadow-[0_6px_16px_rgba(31,107,255,0.12)]",
+                    "flex h-9 w-9 shrink-0 aspect-square items-center justify-center rounded-full border border-[#CFE0FF] bg-white/80 px-1 text-center text-[7px] leading-tight text-[#2F6BFF] shadow-[0_6px_16px_rgba(31,107,255,0.12)] sm:h-16 sm:w-16 sm:text-[9px] md:h-20 md:w-20 md:text-[10px]",
                     label === "Cashfree Payments" &&
-                      "h-30 w-30 text-xs font-semibold text-neutral-800 bg-white",
+                      "h-24 w-24 bg-white text-xs font-semibold text-neutral-800 sm:h-28 sm:w-28 md:h-30 md:w-30",
                     idx === 3 && "text-[#88A6FF] opacity-60 bg-white/60",
                   )}
                 >
@@ -237,6 +237,7 @@ export default function FeaturesSection() {
                       alt="Cashfree Payments"
                       width={100}
                       height={100}
+                      className="h-[90%] w-[90%] object-contain sm:h-full sm:w-full md:h-full md:w-full"
                     />
                   )}
                 </div>

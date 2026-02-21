@@ -28,8 +28,8 @@ export default function HeroSectionOne() {
   const imageY = useTransform(scrollY, [0, 400], [16, -20]);
 
   return (
-    <div className="relative w-full h-386 overflow-x-clip ">
-      <div className="pointer-events-none absolute inset-0 -z-10 w-full h-344 bg-[url('/hero-grid.svg')] bg-cover bg-top bg-no-repeat" />
+    <section className="relative w-full min-h-svh overflow-x-clip mb-32 md:mb-8">
+      <div className="pointer-events-none absolute inset-0 -z-10 w-full bg-[url('/hero-grid.svg')] bg-cover bg-top bg-no-repeat" />
 
       <main className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 pt-32 md:pt-42 md:pb-36 ">
         <div className="flex flex-col items-center text-center">
@@ -89,10 +89,7 @@ export default function HeroSectionOne() {
           </div>
         </div>
 
-        {/* <div
-          ref={imageRef}
-          className="relative flex justify-center md:mt-20 md:h-[120vh]"
-        >
+        <div ref={imageRef} className="relative flex justify-center mt-10 md:mt-20 md:h-[100vh]">
           <motion.div
             style={{
               scale: shouldReduceMotion ? 1 : imageScale,
@@ -115,8 +112,8 @@ export default function HeroSectionOne() {
               </div>
             </div>
           </motion.div>
-        </div> */}
+        </div>
       </main>
-    </div>
+    </section>
   );
 }
