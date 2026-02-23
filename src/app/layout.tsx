@@ -36,7 +36,6 @@ export default function RootLayout({
       >
 
         <Providers>
-          <FullNavbar />
           {children}
         </Providers>
       </body>
