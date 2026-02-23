@@ -62,7 +62,7 @@ export default function PricingFAQ() {
             </p>
             <a 
               href="#contact" 
-              className="text-sm text-gray-400 hover:text-gray-600 transition-colors underline decoration-gray-300 underline-offset-4 mt-1 inline-block"
+              className="text-sm text-gray-600 hover:text-gray-600 transition-colors underline decoration-gray-300 underline-offset-4 mt-1 inline-block"
             >
               Contact support
             </a>

@@ -27,7 +27,7 @@ export default function FullNavbar() {
     <Navbar>
       <NavBody className="max-w-6xl">
         {/* Logo Section */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <Image 
             src="/synappses_logo.svg" 
             alt="synappses logo" 
