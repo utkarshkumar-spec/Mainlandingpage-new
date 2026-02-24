@@ -372,7 +372,7 @@ export function FormSection({ formData, setFormData, onSubmit, loading = false }
                             {/* Modal Header */}
                             <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
                                 <div className="flex items-center gap-3">
-                                    <div className="p-2 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-lg text-white shadow-sm">
+                                    <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg text-white shadow-sm">
                                         <Wand2 className="w-5 h-5" />
                                     </div>
                                     <div>
@@ -483,12 +483,7 @@ export function FormSection({ formData, setFormData, onSubmit, loading = false }
                                             >
                                                 <Sun className="w-3.5 h-3.5" /> Light
                                             </button>
-                                            <button
-                                                onClick={() => setAiParams(prev => ({ ...prev, darkMode: true }))}
-                                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${aiParams.darkMode ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-                                            >
-                                                <Moon className="w-3.5 h-3.5" /> Dark
-                                            </button>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -499,7 +494,7 @@ export function FormSection({ formData, setFormData, onSubmit, loading = false }
                                 <Button
                                     onClick={generateTheme}
                                     disabled={aiLoading}
-                                    className="w-full h-12 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white text-base font-bold rounded-xl shadow-[0_8px_20px_-6px_rgba(139,92,246,0.5)] transition-all flex items-center justify-center gap-2 group relative overflow-hidden"
+                                    className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-base font-bold rounded-xl shadow-[0_8px_20px_-6px_rgba(37,99,235,0.5)] transition-all flex items-center justify-center gap-2 group relative overflow-hidden"
                                 >
                                     <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                                     {aiLoading ? (
@@ -591,7 +586,7 @@ export function FormSection({ formData, setFormData, onSubmit, loading = false }
                             <Button
                                 type="button"
                                 onClick={() => setIsAiModalOpen(true)}
-                                className="h-10 px-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white shadow-md shadow-violet-200 rounded-xl font-bold transition-all flex items-center gap-2 group"
+                                className="h-10 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-md shadow-indigo-200 rounded-xl font-bold transition-all flex items-center gap-2 group"
                             >
                                 <Wand2 className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 <span className="hidden sm:inline">AI Generate Theme</span>
