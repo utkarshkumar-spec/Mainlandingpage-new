@@ -1,94 +1,92 @@
 "use client";
 
 import React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star } from "lucide-react";
+import Image from "next/image";
 
-export default function CustomerStory() {
+const testimonials = [
+  { quote: "Beautiful analytics. I can finally see where my students struggle.", name: "Elena Gomez", role: "CEO, Loreum" },
+  { quote: "The best LMS interface I've used in years. Simple and fast.", name: "Alex Rivera", role: "Product Designer" },
+  { quote: "Our student engagement increased by 40% after switching.", name: "Sarah Chen", role: "Head of Education" },
+  { quote: "The AI course generator is like magic. Saved us weeks of work.", name: "James Wilson", role: "CTO" },
+  { quote: "Minimalist design that doesn't get in the way of learning.", name: "Marcus Thorne", role: "Learning Director" },
+  { quote: "Customer support is top-notch. They helped us migrate overnight.", name: "Sophie Moore", role: "Operations Manager" },
+];
+
+const duplicatedTestimonials = [...testimonials, ...testimonials];
+
+const ReviewCard = ({ quote, name, role }: { quote: string; name: string; role: string; }) => (
+  // Fixed width for mobile to avoid giant cards
+  <div className="mx-2 w-[280px] shrink-0 sm:w-[450px] md:w-[500px]">
+    <div className="flex h-[200px] flex-col justify-between rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:h-full sm:p-8">
+      <div>
+        <div className="mb-3 flex gap-0.5">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400 sm:h-5 sm:w-5" />
+          ))}
+        </div>
+        <p className="line-clamp-3 text-[14px] font-medium leading-relaxed text-gray-700 sm:text-lg">
+          "{quote}"
+        </p>
+      </div>
+      
+      <div className="mt-4 border-t border-gray-50 pt-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-600 text-white sm:h-12 sm:w-12">
+            <span className="text-xs font-bold sm:text-base">{name.charAt(0)}</span>
+          </div>
+          <div>
+            <div className="text-[13px] font-bold text-gray-900 sm:text-base">{name}</div>
+            <div className="text-[11px] text-gray-500 sm:text-sm">{role}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+export default function Reviews() {
   return (
-    <section className="w-full bg-white py-20 overflow-hidden">
-      <div className="mx-auto flex flex-col items-center">
-        
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#E2E8F0] mb-6">
-            <span className="text-[#0066FF] text-xs">💙</span>
-            <span className="text-[12px] font-medium text-[#0066FF]">Wall of Love</span>
-          </div>
-          <h2 className="text-[48px] font-bold text-[#1A1A1A] mb-4 tracking-tight">
-            See what all the talk is about
-          </h2>
-          <p className="text-[#64748B] text-[18px] max-w-xl mx-auto leading-relaxed">
-            Don't take our word for it. Here is what the community has to say about our platform.
-          </p>
-        </div>
-
-        {/* Cards Container: Gap 40px */}
-        <div className="flex flex-row gap-[40px] px-4 overflow-x-auto no-scrollbar pb-8">
+    <section className="w-full bg-white overflow-hidden">
+      {/* Tight vertical padding for mobile */}
+      <div className="py-6 sm:py-20">
+        <div className="mx-auto w-full px-4 text-center">
           
-          {/* Left Card: Text Testimonial */}
-          <div 
-            className="flex-shrink-0 bg-white border border-black/10 flex overflow-hidden"
-            style={{ 
-              width: '873px', 
-              height: '513px', 
-              borderRadius: '16px' 
-            }}
-          >
-            {/* Man's Profile Image */}
-            <div className="w-1/2 h-full">
-              <img 
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" 
-                alt="Testimonial User" 
-                className="w-full h-full object-cover"
-              />
+          {/* Header Section */}
+          <div className="mb-6 flex flex-col items-center">
+            <div className="mb-3 flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-[11px] font-bold text-blue-600">
+              <Image src="/mdi_heart.svg" alt="Heart" width={12} height={12} />
+              <span>Wall of Love</span>
             </div>
-            {/* Quote Content */}
-            <div className="w-1/2 p-12 flex flex-col justify-center">
-              <p className="text-[28px] font-medium text-[#1A1A1A] leading-[1.3] mb-6">
-                "Beautiful analytics. I can finally see where my students struggle."
-              </p>
-              <div>
-                <h4 className="text-[20px] font-bold text-[#1A1A1A]">Elena Gomez,</h4>
-                <p className="text-[#64748B] text-[16px]">CEO, Loreum</p>
-              </div>
-            </div>
+            
+            <h2 className="mb-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              See what all the talk is about
+            </h2>
+            
+            {/* Added Description Heading as requested */}
+            <p className="mx-auto max-w-[300px] text-[13px] leading-relaxed text-gray-500 sm:max-w-2xl sm:text-lg">
+              Don't take our word for it. Here is what the community has to say about our platform.
+            </p>
           </div>
 
-          {/* Right Card: Video/Woman Profile */}
-          <div 
-            className="flex-shrink-0 relative overflow-hidden group border border-black/10"
-            style={{ 
-              width: '873px', 
-              height: '513px', 
-              borderRadius: '16px' 
-            }}
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1740&auto=format&fit=crop" 
-              alt="Woman holding clipboard" 
-              className="w-full h-full object-cover"
-            />
-            {/* Playing Indicator */}
-            <div className="absolute top-8 left-8 bg-black/40 backdrop-blur-md px-4 py-2 rounded-lg flex items-center gap-2 text-white">
-              <div className="w-4 h-4 bg-white/20 rounded flex items-center justify-center">
-                <div className="w-2 h-2 bg-white rounded-sm" />
-              </div>
-              <span className="text-[14px] font-medium tracking-wide">Playing</span>
-            </div>
+          {/* Slider Container */}
+          <div className="relative mt-4 flex w-full overflow-hidden py-2">
+            <motion.div 
+              className="flex" 
+              animate={{ x: "-50%" }} 
+              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+            >
+              {duplicatedTestimonials.map((item, idx) => (
+                <ReviewCard key={idx} {...item} />
+              ))}
+            </motion.div>
+            
+            {/* Side Blurs */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white to-transparent z-10" />
           </div>
-
         </div>
-
-        {/* Navigation Arrows */}
-        <div className="flex gap-4 mt-8">
-          <button className="w-[50px] h-[50px] rounded-full bg-[#F1F5F9] flex items-center justify-center text-[#64748B] hover:bg-[#E2E8F0] transition-colors">
-            <ChevronLeft size={20} />
-          </button>
-          <button className="w-[50px] h-[50px] rounded-full bg-[#F1F5F9] flex items-center justify-center text-[#64748B] hover:bg-[#E2E8F0] transition-colors">
-            <ChevronRight size={20} />
-          </button>
-        </div>
-
       </div>
     </section>
   );
