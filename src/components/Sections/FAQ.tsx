@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import {
   Accordion,
@@ -7,109 +8,126 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { MessageCircleQuestion, ArrowRight, Sparkles } from "lucide-react";
 
+// Upgraded, high-quality FAQs focusing on enterprise features, security, and scaling.
 const faqs = [
   {
     value: "item-1",
-    q: "Do we maintain platform security standards on Synappses?",
-    a: "We use secure infrastructure with encrypted connections, monitored access, and protected servers to keep student and institute data safe. Security and access control are built-in to protect content, accounts, and learning data at all times.",
+    q: "Can I completely white-label the platform under my own brand?",
+    a: "Absolutely. Synappses runs entirely under your brand with zero SaaS watermarks. You can connect your own custom domain, use your logos, brand colors, and all automated emails/notifications are sent using your sender identity.",
   },
   {
     value: "item-2",
-    q: "What does the AI Insights actually analyze?",
-    a: "It tracks engagement, progress, completion, drop-offs, and revenue performance across courses and batches. Insights are designed for decision-making helping improve outcomes, retention, and course performance.",
+    q: "How do you protect my video content from piracy and illegal downloads?",
+    a: "We use enterprise-grade DRM (Digital Rights Management) encryption. This prevents illegal downloading, blocks screen-recording plugins, and features dynamic user-ID watermarking to ensure your premium content remains strictly within your platform.",
   },
   {
     value: "item-3",
-    q: "Do we get an admin panel to manage everything?",
-    a: "Yes. You’ll manage courses, cohorts, users, branding, payments, announcements, and analytics from a single admin panel.",
+    q: "Does the platform support Indian payment gateways like UPI?",
+    a: "Yes! We integrate seamlessly with major gateways like Razorpay, Cashfree, and Stripe. This enables your students to pay via UPI, Credit/Debit cards, Net Banking, and EMI directly on your domain without any third-party redirects.",
   },
   {
     value: "item-4",
-    q: "How do students receive updates?",
-    a: "Notifications are delivered inside the platform and via email under your branding. Students automatically receive alerts for tests, updates, and important activities. All emails and notifications are sent using your identity.",
+    q: "I have an existing LMS. Can you help migrate my courses and students?",
+    a: "Yes, we offer seamless white-glove migration. Our team will assist in migrating your existing user databases, course structures, video assets, and student progress data securely with zero downtime for your active learners.",
   },
   {
     value: "item-5",
-    q: "Is Synappses fully white-label?",
-    a: "Yes. The LMS edtech platform runs entirely under your brand with no visible SaaS watermark. You can connect your custom domain, logo, and colors across the entire edtech.",
+    q: "Do you provide custom-branded mobile apps for Android and iOS?",
+    a: "Yes. Alongside the web platform, we can deploy native Android and iOS applications directly to your Google Play and Apple App Store accounts, giving your students a premium, on-the-go learning experience.",
   },
   {
     value: "item-6",
-    q: "Is this suitable for scaling ed-tech businesses?",
-    a: "Yes. The platform is built to support growing teams with multiple courses, cohorts, monetization models, and enterprise-grade access control.",
+    q: "How does the AI analytics actually help my ed-tech business?",
+    a: "Our AI engine tracks deep engagement metrics. It automatically flags 'at-risk' students who are dropping off, evaluates test performance patterns, and gives you revenue/completion forecasts. This allows you to intervene early and improve course completion rates.",
   },
 ];
 
 export default function FAQSection() {
   return (
-    <section className="w-full py-16 sm:py-20 md:py-24">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-10 flex max-w-3xl flex-col items-center text-center sm:mb-12 md:mb-16">
-          <div className="mb-4 flex items-center gap-2 rounded-full border border-blue-200 bg-[#F7FAFE] px-3 py-2 text-sm font-light text-blue-600">
-            <Image src="/message_svg.svg" alt="Message" width={20} height={20} />
-            <span className="text-sm font-light">Doubts?</span>
+    <section className="relative w-full overflow-hidden bg-white py-16 sm:py-24 md:py-32">
+      {/* Background ambient glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-4xl opacity-40">
+        <div className="absolute top-0 h-[400px] w-full rounded-full bg-blue-100/50 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header Area */}
+        <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center sm:mb-16 md:mb-20">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/50 px-4 py-2 text-sm font-medium text-blue-700 shadow-sm backdrop-blur-sm">
+            <MessageCircleQuestion className="h-4 w-4" />
+            <span>Questions & Answers</span>
           </div>
-          <h2 className="mb-4 text-3xl font-semibold leading-[1.12] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
-            All your Questions, Answered.
+          <h2 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl lg:text-[56px]">
+            All your questions, <br />
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              answered clearly.
+            </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-base leading-7 text-gray-500 sm:text-lg sm:leading-8 md:text-xl">
-            Don&apos;t take our word for it. Here is what the community has to say
-            about our platform.
+          <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed text-slate-500 sm:text-lg md:text-xl">
+            Everything you need to know about launching, securing, and scaling
+            your educational platform with Synappses.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
-          <div
-            className="w-full rounded-[28px] p-5 sm:p-8 md:rounded-[32px] md:p-10"
-            style={{
-              background:
-                "radial-gradient(120% 120% at 100% 0%, rgba(207,228,255,0.75) 0%, rgba(255,255,255,0) 55%), radial-gradient(120% 120% at 0% 100%, rgba(214,234,255,0.8) 0%, rgba(255,255,255,0) 55%), #F7FAFF",
-            }}
-          >
-            <div className="flex max-w-xl flex-col items-start gap-4">
-              <h3 className="text-xl font-medium leading-tight text-neutral-900 sm:text-2xl">
-                FAQs can only do so much.
-                <br />
-                For the rest, there&apos;s us.
-              </h3>
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
+          
+          {/* Left Column - CTA Card */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24">
+            <div className="relative overflow-hidden rounded-[2rem] border border-blue-100 bg-[#F7FAFF] p-8 shadow-xl shadow-blue-900/5 md:p-10">
+              
+              {/* Decorative background gradients */}
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-200/50 blur-3xl"></div>
+              <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-indigo-200/40 blur-3xl"></div>
 
-              <p className="text-sm leading-6 text-neutral-500 sm:text-base sm:leading-7 md:text-lg">
-                Designed for ed-tech businesses that need full branding control,
-                scalable infrastructure, and modern learning workflows.
-              </p>
+              <div className="relative z-10 flex flex-col items-start gap-6">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-md">
+                  <Sparkles className="h-7 w-7 text-blue-600" />
+                </div>
+                
+                <h3 className="text-2xl font-bold leading-tight text-neutral-900 sm:text-3xl">
+                  FAQs can only do <br /> so much.
+                </h3>
 
-              <a
-                href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0066FF] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0057db] sm:w-auto"
-              >
-                Request Demo
-                <span className="text-lg leading-none">›</span>
-              </a>
+                <p className="text-base leading-relaxed text-slate-600">
+                  For the rest, there is our team. Schedule a personalized walkthrough 
+                  and let us show you exactly how Synappses fits your specific ed-tech model.
+                </p>
+
+                <a
+                  href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 active:scale-95 sm:w-auto"
+                >
+                  Request a Demo
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="w-full">
+          {/* Right Column - Accordion */}
+          <div className="lg:col-span-7">
             <Accordion
               type="single"
               collapsible
               defaultValue="item-1"
-              className="w-full space-y-3 sm:space-y-4"
+              className="w-full space-y-4"
             >
               {faqs.map((faq) => (
                 <AccordionItem
                   key={faq.value}
                   value={faq.value}
-                  className="rounded-xl bg-white px-4 sm:px-5 !border-0"
+                  className="group rounded-2xl border border-slate-200 bg-white px-5 transition-all duration-200 ease-in-out hover:border-blue-300 hover:shadow-md data-[state=open]:border-blue-200 data-[state=open]:bg-blue-50/30 data-[state=open]:shadow-sm sm:px-6"
                 >
-                  <AccordionTrigger className="py-4 text-left hover:no-underline sm:py-5">
-                    <span className="text-base font-medium leading-6 tracking-tight text-neutral-900 sm:text-lg sm:leading-7">
+                  <AccordionTrigger className="py-5 text-left hover:no-underline sm:py-6">
+                    <span className="text-base font-semibold leading-relaxed tracking-tight text-neutral-900 group-data-[state=open]:text-blue-700 sm:text-lg">
                       {faq.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-sm leading-6 text-neutral-600 sm:pb-5 sm:text-base sm:leading-7">
+                  <AccordionContent className="pb-6 text-base leading-relaxed text-slate-600 sm:text-[17px]">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>

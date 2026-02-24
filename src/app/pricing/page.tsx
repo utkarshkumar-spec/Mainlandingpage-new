@@ -1,17 +1,18 @@
 import Footer from "@/components/Footer";
 import PricingHeader from "@/components/Sections/PricingHeader"; // Added the import for the Pricing Header
 import PricingContent from "@/components/Sections/PricingContent";
-import TrustedCompanies from "@/components/Sections/TrustedCompanies";
 import BrandedAppCTA from "@/components/Sections/BrandedAppCTA";
 import PricingFAQ from "@/components/Sections/PricingFAQ";
 
 export default function PricingPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#FAFAFA]">
-      
-      {/* Added the Pricing Header with the Monthly/Annual toggle */}
-      <PricingHeader />
-      
+    <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "radial-gradient(125% 125% at 50% 10%, #fff 40%, #5397FF 100%)",
+        }}
+      />
       <PricingContent />
       
       {/* <TrustedCompanies /> */}

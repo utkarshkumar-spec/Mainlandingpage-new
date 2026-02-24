@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FullNavbar() {
   const demoUrl = "https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true";
@@ -22,20 +23,20 @@ export default function FullNavbar() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   return (
     <Navbar>
       <NavBody className="max-w-6xl">
         {/* Logo Section */}
-        <a href="/" className="flex items-center gap-2 group">
-          <Image 
-            src="/synappses_logo.svg" 
-            alt="synappses logo" 
-            width={140} 
-            height={40} 
-            className="w-auto h-8 sm:h-10"
+        <Link href="/" className="flex items-center gap-2 group">
+          <Image
+            src="/synappses_logo.svg"
+            alt="synappses logo"
+            width={140}
+            height={40}
+            className="w-auto h-8 sm:h-8"
           />
-        </a>
+        </Link>
 
         {/* Central Links - Hidden on Mobile by component logic */}
         <NavItems items={navItems} />
@@ -63,9 +64,9 @@ export default function FullNavbar() {
           </div>
           <div className="flex items-center px-3 py-2 gap-4">
             {/* Removed ThemeToggle */}
-            <MobileNavToggle 
-               isOpen={isMobileMenuOpen} 
-               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </div>
         </MobileNavHeader>
@@ -73,26 +74,26 @@ export default function FullNavbar() {
         <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
           <div className="flex w-full flex-col gap-8 items-center py-12 px-6">
             {navItems.map((item, idx) => (
-              <a 
-                key={idx} 
-                href={item.link} 
-                className="text-[18px] font-semibold text-[#111827]" 
+              <Link
+                key={idx}
+                href={item.link}
+                className="text-[18px] font-semibold text-[#111827]"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            
+
             <div className="w-full h-px bg-gray-100" />
-            
+
             <div className="flex flex-col w-full gap-4">
-              <button 
-                onClick={() => window.location.href="/login"}
+              <button
+                onClick={() => window.location.href = "/login"}
                 className="w-full py-3 text-center text-[16px] font-bold text-[#515660]"
               >
                 Login
               </button>
-              
+
               <a
                 href={demoUrl}
                 target="_blank"
