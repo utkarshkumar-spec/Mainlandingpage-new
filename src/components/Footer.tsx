@@ -215,7 +215,7 @@ export default function Footer() {
           {/* Copyright Line */}
           <div className="mt-auto border-t border-[#d6e3f5] py-8">
             <p className="text-xs text-gray-400">
-              © 2025 Synappses Built for the future of education.
+              © 2026 Synappses Built for the future of education.
             </p>
           </div>
         </div>

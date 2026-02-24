@@ -60,24 +60,23 @@ export default function PricingContent() {
   return (
     <section className="relative mx-auto w-full max-w-7xl px-4 pb-24 sm:px-6 lg:px-8 font-manrope">
       {/* Radial Gradient Background */}
-    
+
       {/* Header Section */}
       <div className="pt-62 pb-16 px-4 flex flex-col items-center text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/50 px-4 py-2 text-sm font-medium text-blue-700 shadow-sm backdrop-blur-sm">
           <Sparkles className="h-4 w-4" />
           <span>Flexible Pricing</span>
         </div>
-
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-[1.15]">
-          A plan for <br className="hidden sm:block" />
+         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-[1.15]">
+        Own your learning platform <br className="hidden sm:block" />
           <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            every use case.
+          At a price that makes sense.
           </span>
         </h1>
 
         <p className="mt-6 font-medium text-slate-500 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed">
-          Synappses grows with you. Choose the plan your organization needs today,
-          with the flexibility to scale up tomorrow.
+          Simple, transparent pricing designed for ed-tech. Whether you&apos;re launching 
+          your first cohort or scaling to thousands of learners, find the perfect plan to power your growth.
         </p>
 
         {/* Billing Toggle Switch */}
@@ -115,8 +114,8 @@ export default function PricingContent() {
             {/* Save 20% Badge */}
             <span
               className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase transition-colors duration-300 ${isAnnual
-                  ? "bg-green-100 text-green-700"
-                  : "bg-neutral-800 text-neutral-300"
+                ? "bg-green-100 text-green-700"
+                : "bg-neutral-800 text-neutral-300"
                 }`}
             >
               Save 20%
@@ -134,8 +133,8 @@ export default function PricingContent() {
             <div
               key={plan.name}
               className={`relative flex flex-col rounded-[2rem] p-8 transition-all duration-300 hover:-translate-y-2 lg:p-10 ${isMiddle
-                  ? "bg-gradient-to-b from-blue-600 to-indigo-700 text-white shadow-[0_20px_40px_-15px_rgba(37,99,235,0.5)] border-0 scale-100 md:scale-105 z-10"
-                  : "border border-slate-200 bg-white text-neutral-900 shadow-lg shadow-slate-200/40"
+                ? "bg-gradient-to-b from-blue-600 to-indigo-700 text-white shadow-[0_20px_40px_-15px_rgba(37,99,235,0.5)] border-0 scale-100 md:scale-105 z-10"
+                : "border border-slate-200 bg-white text-neutral-900 shadow-lg shadow-slate-200/40"
                 }`}
             >
               {/* Plan Header */}
@@ -180,8 +179,8 @@ export default function PricingContent() {
               {/* CTA Button */}
               <button
                 className={`w-full py-4 rounded-full text-[15px] font-bold transition-all duration-200 mb-8 ${isMiddle
-                    ? "bg-white text-blue-700 hover:bg-slate-50 hover:shadow-lg active:scale-95"
-                    : "bg-neutral-900 text-white hover:bg-neutral-800 hover:shadow-lg active:scale-95"
+                  ? "bg-white text-blue-700 hover:bg-slate-50 hover:shadow-lg active:scale-95"
+                  : "bg-neutral-900 text-white hover:bg-neutral-800 hover:shadow-lg active:scale-95"
                   }`}
               >
                 {plan.buttonText}
