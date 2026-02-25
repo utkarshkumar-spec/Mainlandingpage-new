@@ -16,6 +16,8 @@ const XIcon = ({ className }: { className?: string }) => (
 );
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="w-full bg-white pt-34">
       <div className="max-w-7xl mx-auto px-6">
@@ -174,11 +176,11 @@ export default function Footer() {
                       Help Center
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="#" className="hover:text-black">
                       Developer API
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
 
@@ -215,7 +217,7 @@ export default function Footer() {
           {/* Copyright Line */}
           <div className="mt-auto border-t border-[#d6e3f5] py-8">
             <p className="text-xs text-gray-400">
-              © 2026 Synappses Built for the future of education.
+              © {currentYear} Synappses Built for the future of education.
             </p>
           </div>
         </div>
