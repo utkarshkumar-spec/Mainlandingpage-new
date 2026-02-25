@@ -12,16 +12,17 @@ import {
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link"; // Link import kiya
+import Link from "next/link";
 
 export default function FullNavbar() {
-  // Purana Cal.com link hata kar naya page route dala
   const demoUrl = "/RequestDemo"; 
   
+  // Updated navItems with the Courses tab
   const navItems = [
     { name: "Home", link: "/" },
     { name: "Features", link: "/#features" },
     { name: "How it works", link: "/#how-it-works" },
+    { name: "Courses", link: "/courses/ai-engineer-2026" }, // New link added here
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,7 +30,6 @@ export default function FullNavbar() {
   return (
     <Navbar>
       <NavBody className="max-w-6xl">
-        {/* Logo Section - Redirects to Home */}
         <Link href="/" className="flex items-center gap-2 group">
           <Image 
             src="/synappses_logo.svg" 
@@ -40,9 +40,9 @@ export default function FullNavbar() {
           />
         </Link>
 
+        {/* This will automatically render the new 'Courses' item */}
         <NavItems items={navItems} />
 
-        {/* Desktop Action */}
         <div className="hidden md:flex items-center gap-3">
           <Link
             href={demoUrl}
@@ -54,7 +54,6 @@ export default function FullNavbar() {
         </div>
       </NavBody>
 
-      {/* Mobile Experience */}
       <MobileNav className="w-full">
         <MobileNavHeader>
           <div className="flex items-center px-3 py-2">
