@@ -26,7 +26,7 @@ const slides = [
             "Based on your requirements—courses, cohorts, monetization, branding, and scale—we design a custom plan tailored to your usage and growth.",
     },
     {
-        image: "/step3.svg",
+        image: "https://res.cloudinary.com/dyktjldc4/image/upload/v1771940231/Screenshot_2026-02-24_at_18-58-01_NextRank_d9jwls.png",
         ref: "step3",
         alt: "Step 3 preview",
         title: "Launch Your LMS",
@@ -78,22 +78,22 @@ export default function HowItWorksSection() {
                 <div className="mx-auto max-w-4xl text-center">
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 px-4 py-2 text-sm font-medium sm:mb-8"
                         style={{ backgroundColor: "#F7FAFE" }}>
-                    <Image
-                        src="/GettingStarted.svg"
-                        alt="Getting Started"
-                        width={25}
-                        height={25}
-                    />
-                    <span className="text-sm font-light">Getting Started</span>
+                        <Image
+                            src="/GettingStarted.svg"
+                            alt="Getting Started"
+                            width={25}
+                            height={25}
+                        />
+                        <span className="text-sm font-light">Getting Started</span>
                     </div>
-                    
+
                     <h2 className="mb-4 text-center text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl md:mb-6 md:text-5xl">
-                        From demo to launch <br/>
+                        From demo to launch <br />
                         in a few simple steps
                     </h2>
 
                     <p className="mx-auto mb-8 max-w-2xl text-base font-medium leading-7 text-gray-500 sm:mb-12 sm:text-lg sm:leading-8 md:text-xl">
-                        We handle the setup, customization, and infrastructure 
+                        We handle the setup, customization, and infrastructure
                         <br className="hidden sm:block" /> so you can
                         focus on delivering education under your own brand.
                     </p>
@@ -123,7 +123,7 @@ export default function HowItWorksSection() {
 
             {/* This is where horizontal scroll STARTS */}
             {/* We'll place this lower from the top */}
-            <div 
+            <div
                 ref={triggerRef}
                 className="relative h-32 sm:h-40"
             >
@@ -132,13 +132,13 @@ export default function HowItWorksSection() {
             </div>
 
             {/* Horizontal Scroll Container - Positioned lower */}
-            <div 
+            <div
                 ref={containerRef}
                 className="relative -mt-32 h-screen w-full sm:-mt-40"
             >
                 {/* Sticky container that holds the slides */}
                 <div className="sticky top-6 h-[calc(100vh-56px)] overflow-hidden sm:top-8 sm:h-[calc(100vh-64px)] md:top-10 md:h-[calc(100vh-80px)]">
-                    <div 
+                    <div
                         ref={slidesContainerRef}
                         className="absolute left-0 top-0 flex h-full px-4 sm:px-6 md:px-[10vw]"
                     >

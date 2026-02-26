@@ -26,7 +26,7 @@ export default function FullNavbar() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   return (
     <Navbar>
       <NavBody className="max-w-6xl">
@@ -81,9 +81,9 @@ export default function FullNavbar() {
                 {item.name}
               </Link>
             ))}
-            
+
             <div className="w-full h-px bg-gray-100" />
-            
+
             <div className="flex flex-col w-full gap-4">
               <Link 
                 href="/login"

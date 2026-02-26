@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
 const httpLink = new HttpLink({
-  uri: process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/graphql", // change to your backend URL
+  uri: process.env.NEXT_PUBLIC_API_URL || "https://api.bizz.social/graphql", // change to your backend URL
   credentials: "include", // optional (for cookies)
 });
 
