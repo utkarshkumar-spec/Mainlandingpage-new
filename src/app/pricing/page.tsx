@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Footer from "@/components/Footer";
 import PricingHeader from "@/components/Sections/PricingHeader";
-import PricingContent from "@/components/Sections/PricingContent";
 import BrandedAppCTA from "@/components/Sections/BrandedAppCTA";
 import PricingFAQ from "@/components/Sections/PricingFAQ";
 
@@ -12,13 +11,10 @@ export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(true);
 
   return (
-    <main className="flex flex-col min-h-screen bg-[#FAFAFA]">
+    <main className="flex flex-col  min-h-screen bg-[#FAFAFA] font-sans antialiased">
       
       {/* 2. Pass state and setter to Header */}
       <PricingHeader isAnnual={isAnnual} setIsAnnual={setIsAnnual} />
-      
-      {/* 3. Pass state to Content to update prices */}
-      <PricingContent isAnnual={isAnnual} />
       
       <div className="mt-12">
         <BrandedAppCTA />

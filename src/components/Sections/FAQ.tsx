@@ -82,7 +82,7 @@ export default function FAQSection() {
               <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-indigo-200/40 blur-3xl"></div>
 
               <div className="relative z-10 flex flex-col items-start gap-6">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-md">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white">
                   <Sparkles className="h-7 w-7 text-blue-600" />
                 </div>
                 
@@ -99,7 +99,7 @@ export default function FAQSection() {
                   href="https://cal.com/newralfounder/schedule-synappses-lms-demo?overlayCalendar=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 active:scale-95 sm:w-auto"
+                  className="group mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-blue-700  active:scale-95 sm:w-auto"
                 >
                   Request a Demo
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -120,7 +120,7 @@ export default function FAQSection() {
                 <AccordionItem
                   key={faq.value}
                   value={faq.value}
-                  className="group rounded-2xl border border-slate-200 bg-white px-5 transition-all duration-200 ease-in-out hover:border-blue-300 hover:shadow-md data-[state=open]:border-blue-200 data-[state=open]:bg-blue-50/30 data-[state=open]:shadow-sm sm:px-6"
+                  className="group rounded-2xl border border-slate-200 bg-white px-5 transition-all duration-200 ease-in-out hover:border-blue-300  data-[state=open]:border-blue-200 data-[state=open]:bg-blue-50/30 sm:px-6"
                 >
                   <AccordionTrigger className="py-5 text-left hover:no-underline sm:py-6">
                     <span className="text-base font-semibold leading-relaxed tracking-tight text-neutral-900 group-data-[state=open]:text-blue-700 sm:text-lg">
