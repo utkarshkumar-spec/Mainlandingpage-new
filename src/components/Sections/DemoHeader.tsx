@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function DemoHeader() {
   return (
-    <section className="relative w-full min-h-[400px] pt-32 pb-10 px-4 flex flex-col items-center text-center bg-[linear-gradient(180deg,_#FFFFFF_0%,_#F3F7FF_100%)]">
+    <section className="relative w-full min-h-200 pt-32 pb-10 px-4 flex flex-col items-center text-center bg-[linear-gradient(180deg,#FFFFFF_0%,#F3F7FF_100%)]">
       <div className="flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: -10 }}

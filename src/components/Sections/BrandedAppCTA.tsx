@@ -12,7 +12,7 @@ export default function BrandedAppCTA() {
 
   return (
     /* FIXED: Reduced pb-16 to pb-8 to tighten the gap with FAQ */
-    <section className="mx-auto w-full max-w-[1360px] px-4 pb-8 sm:px-6 lg:px-8">
+    <section className="mx-auto w-full max-w-340 px-4 pb-8 sm:px-6 lg:px-8">
       
       <div 
         className="relative w-full overflow-hidden rounded-[24px] md:rounded-[32px] shadow-sm"
