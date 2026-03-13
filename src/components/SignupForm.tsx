@@ -50,9 +50,9 @@ export function SignupForm({ formData, setFormData, onSubmit, loading = false }:
                     <motion.img
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="w-12 h-auto mb-6"
-                        src="https://res.cloudinary.com/dyktjldc4/image/upload/v1763739734/LOGO_NEWRAL_2_yy9ky2.png"
-                        alt="Newral Logo"
+                        className="w-40 h-auto mb-6"
+                        src="/synappses_logo.svg"
+                        alt="Synappses Logo"
                     />
                     <motion.h1
                         initial={{ opacity: 0, y: 10 }}
