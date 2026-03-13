@@ -20,7 +20,8 @@ import {
     PlayCircle,
     BookOpen,
     Settings,
-    Bell
+    Bell,
+    MoveLeftIcon
 } from "lucide-react";
 
 import { Input } from "@/components/ui/input"; // Adjust path as needed
@@ -32,10 +33,11 @@ interface SignupFormProps {
     formData: any;
     setFormData: any;
     onSubmit: () => void;
+    goBackToLogin: () => void;
     loading?: boolean;
 }
 
-export function SignupForm({ formData, setFormData, onSubmit, loading = false }: SignupFormProps) {
+export function SignupForm({ formData, setFormData, onSubmit, loading = false , goBackToLogin }: SignupFormProps) {
     return (
         <div className="relative min-h-screen w-full bg-[#fafafa] py-12 px-4 sm:px-6 overflow-hidden selection:bg-indigo-100 selection:text-indigo-900">
             {/* Premium Background */}
@@ -83,6 +85,7 @@ export function SignupForm({ formData, setFormData, onSubmit, loading = false }:
                         formData={formData}
                         setFormData={setFormData}
                         loading={loading}
+                        goBackToLogin={goBackToLogin}
                     />
                 </motion.div>
             </div>
@@ -90,7 +93,7 @@ export function SignupForm({ formData, setFormData, onSubmit, loading = false }:
     );
 }
 
-export function FormSection({ formData, setFormData, onSubmit, loading = false }: any) {
+export function FormSection({ formData, setFormData, onSubmit, loading = false, goBackToLogin }: any) {
     const [logoPreview, setLogoPreview] = useState<string | null>(formData.logoUrl || null);
     const [uploading, setUploading] = useState(false);
 
@@ -251,7 +254,7 @@ export function FormSection({ formData, setFormData, onSubmit, loading = false }
                                 <div className="hidden md:flex w-64 flex-col border-r border-black/5 p-6 backdrop-blur-sm bg-white/40">
                                     <div className="mb-10 flex justify-center items-center">
                                         {logoPreview ? (
-                                            <img src={logoPreview} className="max-h-14 scale-200 object-contain" alt="Logo" />
+                                            <img src={logoPreview} className="max-h-14  object-contain" alt="Logo" />
                                         ) : (
                                             <div className="text-lg font-extrabold tracking-tight">
                                                 {formData.organisationName || "Academy Name"}
@@ -523,6 +526,10 @@ export function FormSection({ formData, setFormData, onSubmit, loading = false }
 
                     {/* Section 1: Core Info */}
                     <div className="space-y-6">
+                        <Button className="bg-transparent hover:bg-slate-100  text-black" onClick={() => goBackToLogin()}>
+                            <MoveLeftIcon /> Go Back to Email
+                        </Button>
+                        
                         <div className="flex items-center gap-3 mb-2">
                             <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600">
                                 <Globe className="w-5 h-5" />

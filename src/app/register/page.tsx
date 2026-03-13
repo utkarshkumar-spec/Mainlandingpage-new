@@ -48,6 +48,17 @@ export const REGISTER_TENANT = gql`
   }
 `;
 
+// Add the update tenant logo mutation
+export const UPDATE_TENANT_LOGO = gql`
+  mutation UpdateTenantLogo($input: UpdateTenantLogoInput!) {
+    updateTenantLogo(input: $input) {
+      success
+      message
+      logoUrl
+    }
+  }
+`;
+
 
 interface SignupFormProps {
     formData: FormData;
@@ -96,6 +107,14 @@ interface RegisterTenantResponse {
     };
 }
 
+interface UpdateTenantLogoResponse {
+    updateTenantLogo: {
+        success: boolean;
+        message: string;
+        logoUrl: string;
+    };
+}
+
 export default function Signupflow() {
     const [step, setStep] = useState<"email" | "adminprofile">("email");
 
@@ -117,7 +136,8 @@ export default function Signupflow() {
         },
     });
 
-    const [registerTenant, { loading }] = useMutation<RegisterTenantResponse>(REGISTER_TENANT);
+    const [registerTenant, { loading: registerLoading }] = useMutation<RegisterTenantResponse>(REGISTER_TENANT);
+    const [updateTenantLogo, { loading: updateLogoLoading }] = useMutation<UpdateTenantLogoResponse>(UPDATE_TENANT_LOGO);
 
     const handleEmailSubmit = async (email: string, password: string) => {
     
@@ -127,7 +147,7 @@ export default function Signupflow() {
     };
 
     const handleSubmit = async (): Promise<void> => {
-        if (loading) return;
+        if (registerLoading || updateLogoLoading) return;
 
         if (
             !formData.organisationName.trim() ||
@@ -158,6 +178,7 @@ export default function Signupflow() {
         };
 
         try {
+            // Step 1: Register tenant
             const result = await registerTenant({
                 variables: variables
             });
@@ -175,12 +196,36 @@ export default function Signupflow() {
                 showToast.error(response?.message || "Registration failed");
                 return;
             }
+
+            // Step 2: Update logo if logoUrl exists
+            if (formData.logoUrl) {
+                try {
+                    const logoResult = await updateTenantLogo({
+                        variables: {
+                            input: {
+                                logoUrl: formData.logoUrl
+                            }
+                        }
+                    });
+
+                    if (logoResult.data?.updateTenantLogo.success) {
+                        showToast.success("Logo uploaded successfully!");
+                    } else {
+                        showToast.warning("Tenant created but logo upload failed. You can update it later.");
+                    }
+                } catch (logoError) {
+                    console.error("Logo upload failed:", logoError);
+                    showToast.warning("Tenant created but logo upload failed. You can update it later.");
+                }
+            }
+
             showToast.success("Account created successfully!");
             showToast.loading("Redirecting to your admin panel...", 1500);
-                // Redirect to the new tenant's subdomain after a short delay
-                setTimeout(() => {
-                    window.location.href = `https://${response.user?.subdomain}${process.env.NEXT_PUBLIC_ADMIN_PANAL_URL}/auth/signin`;
-                }, 1500);
+            
+            // Step 3: Redirect to the new tenant's subdomain after a short delay
+            setTimeout(() => {
+                window.location.href = `https://${response.user?.subdomain}${process.env.NEXT_PUBLIC_ADMIN_PANAL_URL}/auth/signin`;
+            }, 1500);
 
         } catch (error) {
             console.error("MUTATION ERROR →", error);
@@ -188,6 +233,10 @@ export default function Signupflow() {
             showToast.error(message);
         }
     };
+    const goBackToLogin = () => {
+        setStep("email");
+    }
+    const isLoading = registerLoading || updateLogoLoading;
 
     return (
         <div className="">
@@ -204,10 +253,10 @@ export default function Signupflow() {
                     onSubmit={handleSubmit}
                     formData={formData}
                     setFormData={setFormData}
-                    loading={loading}
+                    loading={isLoading}
+                    goBackToLogin={goBackToLogin}
                 />
             )}
         </div>
     );
 }
-

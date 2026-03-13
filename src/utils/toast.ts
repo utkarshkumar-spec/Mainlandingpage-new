@@ -29,6 +29,12 @@ export const showToast = {
             closeButton: false,
         }),
 
+    warning: (message: string, duration?: number) =>
+        toast.warning(message, {
+            duration: duration || TOAST_DURATIONS.DEFAULT,
+            closeButton: false,
+        }),
+
     // Custom method for dismissing loading toasts
     dismiss: (toastId?: string | number) => {
         if (toastId) {
